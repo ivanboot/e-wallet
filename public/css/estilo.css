@@ -1,0 +1,1279 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url("/img/fondo.jpg");
+	background-size: 150%;
+	font-family: century gothic;
+    color: white;
+}
+
+/*  Estilo login  */
+#login, #recuperacion, #registro, #datos{
+	background-color: rgba(0,0,0,.2);
+}
+#login, #datos{
+	width: 50%;
+	border-radius: 8px;
+}
+#ingresos, #gastos{
+	width: 80%;
+	border-radius: 8px;
+}
+#login h3, #recuperacion h3, #registro h3, #datos h3{
+	text-align: center;
+	background-color: rgba(0, 61, 153, 1);
+	padding-top: 3%;
+	padding-bottom: 3%;
+	color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0;
+	margin-bottom: 5%;
+}
+#login h6, #recuperacion h6, #registro h6, #datos h6{
+	text-align: center;
+	background-color: rgba(0, 61, 153, 1);
+	padding-top: 3%;
+	padding-bottom: 4%;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: white;
+	margin: 0;
+	margin-top: 5%;
+}
+
+#login #link{
+	height: 35px;
+    color: white;
+}
+
+#login a:visited, #login a:link{
+    color: white;
+}
+
+
+#login #boton, #recuperacion #boton, #registro #boton{
+	text-align: right;
+	padding-right: 15%;
+    padding-top: 5%;
+}
+#login input[type="button"]{
+	width: 45%;
+    margin-right: 10%;
+	height: 40px;
+	background-color: rgba(51, 119, 255,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#login input[type="reset"]{
+	width: 45%;
+    margin-right: 0%;
+	height: 40px;
+	background-color: rgba(51, 119, 255,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#login input[type="button"]:hover{
+    cursor: pointer;
+    background-color: rgba(51, 119, 255,1);
+    transition: 0.5s all;
+}
+
+#login input[type="reset"]:hover{
+    cursor: pointer;
+    background-color: rgba(51, 119, 255,1);
+    transition: 0.5s all;
+}
+
+
+.section input[type="text"],.section input[type="password"]{
+	
+    padding: 3px;
+    padding-left: 5px;
+    font-size: 17px;
+    font-family: century gothic;
+    width: 70%;
+    margin-bottom: 5%;
+    border: none;
+}
+#registro select, #registro input[type="date"]{
+    padding: 3px;
+    padding-left: 5px;
+    font-size: 17px;
+    font-family: century gothic;
+    width: 70%;
+}
+#login input[type="text"]:focus,#login input[type="password"]:focus{
+	border: 1px solid blue; 
+    transition: 0.5s All;
+  
+}
+
+#login input[type="text"]:hover,#login input[type="password"]:hover{
+	border: 1px solid blue; 
+    transition: 0.5s All;
+  
+}
+
+.section td{
+	text-align: left;
+    padding-top: 10px;
+}
+#login table, #registro table, #recuperacion table{
+	margin: 0 auto;
+	width: 100%;
+	margin-left: 6.5%;
+	margin-right: 10%;
+    
+}
+#login #olvidar{
+	text-align: left;
+}
+#login #registrar{
+	text-align: left;
+}
+#login tr{
+	height: 20px;
+	
+}
+
+#login a{
+    text-decoration: none;
+}
+
+#login{
+	display: block;
+	position: absolute;
+    top:20%;
+    left: 25%;
+    animation-name: login;
+    animation-duration: 2s;
+}
+
+
+/*-----------------------------*/
+
+/*  Estilo registro  */
+
+#registro h3{
+	text-align: center;
+}
+#registro tr{
+	height: 30px;
+	margin-top: 1%;
+}
+
+#registro input[type="button"]{
+	width: 40%;
+    margin-right: 10%;
+	height: 40px;
+	background-color: rgba(51, 119, 255,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#registro input[type="reset"]{
+	width: 40%;
+    margin: 0%;
+    margin-right: 4%;
+	height: 40px;
+	background-color: rgba(51, 119, 255,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#registro input[type="button"]:hover{
+    cursor: pointer;
+    background-color: rgba(51, 119, 255,1);
+    transition: 0.5s all;
+}
+
+#registro input[type="reset"]:hover{
+    cursor: pointer;
+    background-color: rgba(51, 119, 255,1);
+    transition: 0.5s all;
+}
+
+#regresar{
+	width: 5%;
+	position: absolute;
+	right: 90%;
+}
+
+#regresar:hover{
+	cursor: pointer;
+}
+
+
+/*------------------------------*/
+
+
+/*  Estilo recuperación  */
+
+
+
+#regresar1{
+	width: 5%;
+	position: absolute;
+	top: 5%;
+	right: 90%;
+}
+
+#regresar1:hover{
+	cursor: pointer;
+}
+
+
+/*-----------------------*/
+
+/*------Mostrar contra----*/
+
+#mostrar{
+	display: none;
+	width: 100%;
+	height: 100%;	
+	background-color: rgba(0,0,0,0.7);
+	position: absolute;
+	z-index: 999;
+	transition: 0.5s All; 
+}
+
+#contcontra{
+	background-color: rgba(255,255,255,1);
+	color: black;
+	width: 15%;
+	margin-left: 38%;
+	margin-top: 10%;
+	padding: 5%;
+	font-size: 20px;
+	border: 2px solid rgba(0, 61, 153, 1);
+	border-radius: 10px;
+	position: absolute;
+	animation-name: mos;
+    animation-duration: 2s;
+}
+
+
+#mostrar h5{
+	margin-bottom: 10%; 
+}
+
+#mostrar p{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	color: rgba(51, 119, 255,1);
+}
+
+#mostrar input[type="button"]{
+	margin-top: 5%;
+	width: 100%;
+	height: 40px;
+	background-color: rgba(51, 119, 255,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#mostrar input[type="button"]:hover{
+
+	cursor: pointer;
+    background-color: rgba(51, 119, 255,1);
+    transition: 0.5s all;
+
+}
+
+
+/*-----------------------*/
+/* CSS PARA #datos  EMPIEZA AQUI*/
+#datos{
+	display: none;
+	position: absolute;
+    top:15%;
+    left: 25%;
+    animation-name: dat;
+    animation-duration: 2s;
+}
+
+#datos #boton{
+	text-align: right;
+	padding-right: 15%;
+    padding-top: 1%;
+}
+#datos div{
+	text-align: center;
+}
+
+ #datos p{
+ 	width: 100%;
+ 	text-align: center;
+ }
+ #datos input[type="button"]{
+	width: 30%;
+	height: 30px;
+	background-color: rgba(51, 119, 255,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+#datos input[type="button"]:hover{
+    cursor: pointer;
+    background-color: rgba(51, 119, 255,1);
+    transition: 0.5s all;
+}
+#datos table{
+ 	margin: 0 auto;
+ 	width: 90%;
+ 	margin-left: 6.5%;
+ 	margin-right: 10%;
+ }
+ #datos table td[colspan="2"]{
+ 	text-align: center;
+ }
+
+ #datos #btndatos{
+ 	width: 90%;
+ }
+
+  #datos #btnfinalizar{
+ 	width: 70%;
+ }
+
+ #datos table{
+ 	margin-left: 11.5%;
+ }
+
+/* CSS PARA #datos TERMINA AQUI */
+
+/*------menu---------*/
+
+
+
+#folo{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url("/img/fondo1.jpg");
+	background-size: cover;
+	overflow: scroll;
+	display: none;
+	animation-name: sec; 
+	animation-duration: 2s;
+	
+}
+
+
+#menu img{
+	width: 70%;
+}
+
+#menu h3{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0;
+	margin-bottom: 5%;
+}
+
+
+#menu{
+	width: 50%;
+	background-color: rgba(0,0,0,0.3);
+	left: 25%;
+	top: 10%;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	position: absolute;
+	display: block;
+}
+
+#ajustes img{
+	position: absolute;
+	width: 8%;
+	right: 2%;
+	top: 1%;
+}
+
+#ajustes img:hover{
+	cursor: pointer;
+}
+
+.contenedor-img {
+    width: 200px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    margin-left: 10%;
+    margin-bottom: 5%;
+
+}
+
+.contenedor-img:hover{
+	cursor: pointer;
+}
+
+.contenedor-img img{
+	margin-left: 15%;
+	margin-top: 15%;
+
+}
+    .contenedor-img .mascara,.contenedor-img .contenido {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0
+    }
+    .contenedor-img img {
+        display: block;
+        position: relative;
+       
+    }
+    .contenedor-img h2 {
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.9);
+        margin: 20px 0 0 0
+    }
+    .contenedor-img p {    
+        font-size: 12px;
+        position: relative;
+        color: #fff;
+        padding: 10px 20px 10px;
+        text-align: center
+    }
+    .contenedor-img a.link {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        background: #222;
+        color: #fff;
+        text-transform: uppercase;
+        box-shadow: 0 0 1px #000
+    }
+        .contenedor-img a.link:hover {
+            box-shadow: 0 0 5px #000
+        }
+
+.ejemplo-1 img {
+transition: all 0.2s linear;
+}
+.ejemplo-1 .mascara {
+opacity: 0;
+background-color: rgba(46,157,120, 0.7);
+transition: all 0.3s ease-in-out;
+}
+.ejemplo-1 h2 {
+transform: translateX(-200px);/*Desplazamos a la izquierda*/
+opacity: 0;
+transition: all 0.7s ease-in-out;
+}
+.ejemplo-1 p {
+transform: translateX(200px);/*Desplazamos a la derecha*/
+opacity: 0;
+transition: all 0.4s linear;
+}
+.ejemplo-1 a.link{
+opacity: 0;
+transition: all 0.4s ease-in-out;
+transform: translateY(100px)/*Desplazamos para abajo*/
+}
+.ejemplo-1:hover img {
+transform: scale(1.1);/*Damos un ligero zoom a la imagen*/
+}
+.ejemplo-1:hover .mascara {
+opacity: 1;
+}
+.ejemplo-1:hover h2,
+.ejemplo-1:hover p,
+.ejemplo-1:hover a.link {
+opacity: 1;
+transform: translateX(0px);/*Regresamos a las posiciones originales*/
+}
+.ejemplo-1:hover p {
+transition-delay: 0.1s;
+}
+.ejemplo-1:hover a.link {
+transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
+
+transform: translateY(0px);
+}
+
+
+/*--------------------*/
+
+/*------menu2----------*/
+
+#button {
+padding: 0;
+width: 100%;
+position: fixed;
+
+}
+
+#button li {
+display: inline;
+
+}
+
+#button #titulo{
+	width: 40.9%;
+	text-align: left;
+}
+
+#button #titulo:hover{
+
+	background-color: black;
+}
+
+
+#button li a {
+font-family: Arial;
+font-size:17px;
+text-decoration: none;
+float:left;
+padding-top: 1%;
+padding-left: 1.5%;
+padding-right: 1.5%;
+padding-bottom: 1%;
+background-color: black;
+color: #fff;
+width: 5%;
+text-align: center;
+
+
+}
+
+#button img{
+	width: 20px;
+}
+
+#button li a:hover{
+	background-color: rgba(0,0,0,.7);
+	transition: 0.5s all;
+}
+/*--------------------------------------------*/
+
+/* SUB MENUS */
+
+#cuentas, #ingresos, #gastos, #configuracion, #estadistica{
+
+ background-color: rgba(0,0,0,.2);
+
+}
+
+#cuentas, #ingresos, #gastos, #configuracion, #estadistica{
+	width: 50%;
+	border-radius: 8px;
+}
+
+#cuentas h3, #ingresos h3, #gastos h3, #configuracion h3, #estadistica h3{
+
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0;
+	margin-bottom: 5%;
+}
+
+#cuentas h6, #ingresos h6, #gastos h6, #configuracion h6, #estadistica h6{
+
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 4%;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: white;
+	margin: 0;
+	margin-top: 5%;
+
+}
+
+
+/*  Cuenta  */
+
+#cuentas{
+	display: none;
+	position: absolute;
+    top:15%;
+    right: 25%;
+    animation-name: cuenta;
+    animation-duration: 2s;
+}
+
+
+.regresar{
+	width: 5%;
+	position: absolute;
+	right: 90%;
+}
+
+.regresar:hover{
+	cursor: pointer;
+}
+
+#cuentas div{	
+	text-align: center;
+	border-radius: 6px;
+	border-width: 10px;
+	text-decoration: none;
+}
+#cuentas #subcuenta1, #cuentas #subcuenta2{
+	display: inline-block;
+	margin-left: 15%;
+	margin-top: 5%;
+}
+#subcuenta3{
+	margin-top: 5%;
+}
+
+
+
+
+/*---------------- */
+
+/* Ingresos */
+#ingresos{
+	display: none;
+	position: absolute;
+    top:10%;
+    left: 25%;
+    animation-name: ingreso;
+    animation-duration: 2s;
+}
+
+#ingresos table, #gastos table{
+	margin: 0 auto;
+	width: 92%;
+	margin-left: 4%;
+
+}
+#ingresos th, #gastos th{
+	font-size: 15px;
+	padding: 10px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.7);
+}
+#ingresos td, #gastos td{
+	font-size: 15px;
+	text-align: center;
+	background-color: rgba(0,0,0,0.5);
+}
+#ingresos div, #gastos div{
+	text-align: right;
+	margin-right: 5%;
+	margin-top: 2%;
+}
+#ingresos input[type="text"], #gastos input[type="text"]{
+	width: 90%;
+}
+#ingresos input[type="button"], #gastos input[type="button"]{
+	padding: 15px;	   
+	height: 40px;
+	background-color: rgba(46, 139, 87,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#ingresos input[type="button"]:hover, #gastos input[type="button"]:hover{
+	transition: 0.5s all;
+	cursor: pointer;
+	background-color: rgba(46, 139, 87,1);
+}
+
+/*-----------------*/
+
+/* Gastos */
+#gastos{
+	display: none;
+	position: absolute;
+    top:10%;
+    left: 25%;
+    animation-name: gasto;
+    animation-duration: 2s;
+}
+
+#gastos select{
+	font-family: century gothic;
+	font-size: 15px;
+	padding: 4px;
+	margin-bottom: 4%;
+}
+/*-----------------*/
+
+/* Configuracion */
+
+#configuracion{
+	display: none;
+	position: absolute;
+    top:10%;
+    left: 25%;
+    animation-name: config;
+    animation-duration: 2s;
+}
+
+#configuracion div{	
+	text-align: center;
+
+	text-decoration: none;
+}
+#configuracion #subconfiguracion1, #configuracion #subconfiguracion2{
+	display: inline-block;
+	margin-left: 11%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+
+
+/*-----------------*/
+
+/* Configuracion */
+#estadistica{
+	display: none;
+	position: absolute;
+    top:10%;
+    left: 25%;
+    animation-name: estadistica;
+    animation-duration: 2s;
+}
+
+#estadistica div{
+	text-align: center;
+}
+
+/*-----------------*/
+
+#gestioncuentas{
+	background-color: rgba(0,0,0,.2);
+	position: absolute;
+    top:10%;
+    left: 25%;
+    display: none;
+    width: 50%;
+	border-radius: 8px;
+
+}
+
+#gestioncuentas h3{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0;
+	margin-bottom: 5%;
+}
+
+#gestioncuentas h6{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 4%;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: white;
+	margin: 0;
+	margin-top: 5%;
+}
+
+
+#gestioncuentas input[type="button"]{
+	width: 100%;
+	height: 40px;
+	background-color: rgba(46, 139, 87,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#gestioncuentas input[type="button"]:hover{
+	cursor: pointer;
+	transition: 0.5s all;
+	background-color: rgba(46, 139, 87,1);
+
+}
+
+#btnvercuenta{
+	margin-left: 10%;
+}
+
+#gestioncuentas input[type="text"]{
+	margin-left: 30%;
+
+}
+
+#gestioncuentas #tg{
+	margin-left: 28%;
+}
+
+#gestioncuentas #vtcuentas{
+	overflow: hidden;
+	width: 100%;
+	display: none;
+}
+
+.vercuentas{
+	margin-left: 5%;
+	width: 90%;
+}
+
+.vercuentas, .vercuentas th, .vercuentas td {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+#gestioncuentas #btnregcuenta{
+	display: none;
+	width: 15%;
+	margin-left: 40%;
+	margin-top: 5%;
+}
+
+.vercuentas th, .vercuentas td{
+    padding: 5px;
+
+}
+
+#btnagregarcuenta, #btnvercuenta{
+	width: 30%;
+}
+
+
+
+/*-----------------------------*/
+#efectivo{
+	display: none;
+	width: 100%;
+	height: 100%;	
+	background-color: rgba(0,0,0,0.7);
+	position: absolute;
+	z-index: 999;
+	transition: 0.5s All; 
+}
+
+#efectivo #ef{
+	background-color: rgba(255,255,255,1);
+	color: black;
+	width: 15%;
+	margin-left: 38%;
+	margin-top: 10%;
+	padding: 5%;
+	font-size: 20px;
+	border: 2px solid rgba(46, 139, 87,1);
+	border-radius: 10px;
+	position: absolute;
+	animation-name: mos;
+    animation-duration: 2s;
+}
+
+#efectivo h5{
+	margin-bottom: 10%; 
+}
+
+#efectivo p{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	color: rgba(51, 119, 255,1);
+}
+
+#efectivo input[type="button"]{
+	margin-top: 5%;
+	width: 100%;
+	height: 40px;
+	background-color: rgba(46, 139, 87,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#efectivo input[type="button"]:hover{
+
+	cursor: pointer;
+    background-color: rgba(46, 139, 87,1);
+    transition: 0.5s all;
+
+}
+
+#tarjetascredito{
+	position: absolute;
+    top:10%;
+    left: 25%;
+    display: none;
+}
+
+#tarjetascredito h3{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0;
+	margin-bottom: 5%;
+}
+
+#tarjetascredito h6{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 4%;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: white;
+	margin: 0;
+	margin-top: 5%;
+}
+
+#tarjetascredito{
+	background-color: rgba(0,0,0,.2);
+}
+#tarjetascredito{
+	width: 50%;
+	border-radius: 8px;
+}
+
+#tarjetascredito input[type="button"]{
+	width: 100%;
+	margin-left: 20%;
+	height: 40px;
+	background-color: rgba(46, 139, 87,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+
+#tarjetascredito input[type="button"]:hover{
+	cursor: pointer;
+	transition: 0.5s all;
+	background-color: rgba(46, 139, 87,1);
+
+}
+
+#tarjetascredito input[type="text"]{
+	margin-left: 20%;
+
+}
+
+#tarjetascredito input[type="date"]{
+	margin-left: 20%;
+	padding: 3px;
+    padding-left: 5px;
+    font-size: 12px;
+    font-family: century gothic;
+    width: 70%;
+
+}
+
+#tarjetascredito #tg1{
+	margin-left: 10%;
+}
+
+#tarjetascredito #vttarjetas{
+	display: none;
+	overflow: hidden;
+	width: 100%;
+	display: none;
+}
+
+#tarjetascredito #btnvertarjeta{
+	margin-left: 0%;
+}
+
+#tarjetascredito #btnregtarjeta{
+	display: none;
+	width: 15%;
+	margin-left: 40%;
+	margin-top: 5%;
+}
+
+#tarjetascredito #btndagregartarjeta, #tarjetascredito #btnvertarjeta{
+	width: 50%;
+	float: left;
+}
+
+
+
+/* css para submenus de configuracion */
+#tipo_pago{
+	background-color: rgba(0,0,0,.2);
+	width: 50%;
+	border-radius: 8px;
+	position: absolute;
+	display: none;
+	animation-name: config;
+	animation-duration: 2s;
+	top: 10%;
+	left: 25%;
+}
+#tipo_pago select{
+	font-family: century gothic;
+	font-size: 15px;
+	padding: 4px;
+	margin-bottom: 4%;
+}
+#tipo_pago div{
+	text-align: center;
+}
+#tipo_pago input[type="button"], #balance input[type="button"]{
+	margin-top: 3%;
+	padding: 15px;	   
+	height: 40px;
+	background-color: rgba(46, 139, 87,.5);
+	color: #f2f2f2;
+	border-style: none;
+    border-radius: 5px;
+}
+#tipo_pago h3, #balance h3{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	margin: 0;
+	margin-bottom: 5%;
+}
+#tipo_pago h6, #balance h6{
+	text-align: center;
+	background-color: #2E8B57;
+	padding-top: 3%;
+	padding-bottom: 4%;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	color: white;
+	margin: 0;
+	margin-top: 5%;
+}
+#balance{
+	background-color: rgba(0,0,0,.2);
+	width: 50%;
+	border-radius: 8px;
+	position: absolute;
+	animation-name: config;
+	animation-duration: 2s;
+	display: none;
+	top: 10%;
+	left: 25%;
+}
+#balance table{
+	margin: 0 auto;
+}
+#balance td{
+	text-align: center;
+}
+
+/***********************************/
+
+
+
+
+
+
+/*------Responsive--------*/
+
+
+@media (max-width: 768px){
+
+body{
+	background-size: 500%;
+}
+
+#login{
+	width: 90%;
+	font-size: 17px;
+	left: 5%;
+}
+
+#login table td{
+	font-size: 18px;
+}
+#login #olvidar a, #login #registrar a{
+	font-size: 16px;
+	text-align: right;
+
+}
+#login input[type="button"], #login input[type="reset"]{
+	font-size: 17px;
+}
+
+
+#registro{
+	width: 90%;
+	left: 5%;
+	font-size: 17px;
+}
+#registro table td{
+	font-size: 17px;
+}
+
+#registro input[type="button"], #registro input[type="reset"]{
+	font-size: 15px;
+}
+
+
+#recuperacion{
+	font-size: 15px;
+	width: 90%;
+	left: 5%;
+}
+#recuperacion table td{
+	font-size: 15px;
+}
+#recuperacion input[type="button"]{
+	font-size: 15px;
+	right: 10%;
+	bottom: 25%;
+}
+
+#recuperacion input[type="text"]{
+	width: 80%;
+}
+
+
+#datos{
+	font-size: 15px;
+	bottom: 5%;
+}
+
+#datos table{
+	margin-top:2%;
+	font-size: 15px;
+}
+
+#datos input[type="button"]{
+	font-size: 15px;
+}
+
+
+
+#menu{
+	width: 90%;
+	left: 16%;
+	height: 100%;
+	font-size: 20px;
+}
+
+#menu .contenedor-img{
+	margin-left: 0;
+}
+
+#efectivo #ef{
+	width: 80%; 
+	margin-left: 5%;
+	margin-top: 25%; 
+
+}
+
+#cuenta, #ingreso, #est, #gasto{
+	margin-left: 14%;
+
+}
+
+#cuentas, #ingresos, #gastos, #estadistica, #configuracion{
+	font-size: 20px;
+
+}
+
+#gastos, #ingresos{
+	width: 75%;
+	left: 15%;
+}
+#gastos table th, #ingresos table th{
+	font-size: 17px;
+}
+#gastos input[type="button"], #ingresos input[type="button"]{
+	font-size: 18px;
+	padding-bottom: 5%;
+}
+
+#configuracion{
+	width: 64%;
+	left: 19%;
+	
+}
+
+
+}
+
+/****************************************************/
+
+/* Min. Width 1024px tablets en horizontal y escritorios normales */
+@media(max-width: 1024px){
+
+	body{
+		background-size: 200%;
+	}
+
+	#login{
+		width: 75%;
+		left: 12%;
+	}
+
+	#registro{
+		width: 60%;
+		left: 20%;
+	}
+
+	#recuperacion{
+		width: 60%;
+		left: 20%;
+	}
+
+
+	#menu{
+		width: 60%;
+		left: 20%;
+	}
+
+	#menu .contenedor-img{
+		left: 0%;
+	}
+
+	#cuenta, #ingreso, #est, #gasto{
+	margin-top: 10%;
+}
+}
+
+
+/******************************************************************/
+
+/* Min. width 1200px Escritorios muy anchos */
+
+@media(max-width: 1200px){
+
+
+}
+
+/********************************************/
