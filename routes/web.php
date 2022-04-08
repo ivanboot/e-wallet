@@ -13,8 +13,16 @@
 
 Route::get('/', function () {
     return view('login');
-});
+})->name('/');
 
-Route::get('/index', function () {
-    return view('index/index');
-});
+Route::get('/index', 'HomeController@index')->name('index');
+
+Route::get('/cuentas', 'cuentasController@index')->name('cuentas');
+
+Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
+
+Route::get('/egresos', 'egresosController@index')->name('egresos');
+
+Route::get('/opciones', 'opcionesController@index')->name('opciones');
+
+Route::get('/estadisticas', 'estadisticasController@index')->name('estadisticas');

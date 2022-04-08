@@ -12,7 +12,7 @@
 <body>
     <section id="login" class="section">
         <form name="frmlogin" id="frmlogin">
-            <h3>Login 2</h3>
+            <h3>Login</h3>
             <table>
                 <tr><td>Nombre de Usuario:</td><td>Contraseña:</td></tr>
                 <tr><td><input type="text" id="txtuser" name="txtuser"></td><td><input type="password" id="txtpassword" name="txtpassword"></td></tr>
@@ -80,39 +80,5 @@
             </div>
         </div>
     </div>
-    <!--
-    <section id="registro" class="section">
-        <form name="frmregistro" id="frmregistro">
-            <h3><img src="../img/regresar.png" name="regresar" id="regresar">Registro</h3>
-            <table>
-                <tr><td>Nombres:</td><td><input type="text" name="txtnombre" id="txtnombre"></td></tr>
-                <tr><td>Apellidos:</td><td><input type="text" name="txtapellido" id="txtapellido"></td></tr>
-                <tr><td>Correo:</td><td><input type="text" name="txtcorreo" id="txtcorreo"></td></tr>
-                <tr><td>Nombre de usuario:</td><td><input type="text" name="txtusername" id="txtusername"></td></tr>
-                <tr><td>Contraseña:</td><td><input type="password" name="txtcontra" id="txtcontra"></td></tr>
-                <tr><td>Dirección:</td><td><input type="text" name="txtdirec" id="txtdirec"></td></tr>
-                <tr><td>Pregunta de seguridad:</td>
-                <td>
-                    <select id="slcpregunta" name="slcpregunta">
-                        <option value="¿Cuál es tu color favorito?">¿Cuál es tu color favorito?</option>
-                        <option value="¿Cómo se llama tu mascota?">¿Cómo se llama tu mascota?</option>
-                        <option value="¿Quíen es tu mejor amigo?">¿Quíen es tu mejor amigo?</option>
-                        <option value="¿Cuál es tu programa favorito?">¿Cuál es tu programa favorito?</option>
-                        <option value="¿Cuál es tu comida favorita?">¿Cuál es tu comida favorita?</option>
-                    </select>
-                </td>
-                </tr>
-                <tr><td>Respuesta:</td><td><input type="text" name="txtrespuesta" id="txtrespuesta"></td></tr>
-                <tr><td>DUI:</td><td><input type="text" name="txtdui" id="txtdui"></td></tr>
-                <tr><td>NIT:</td><td><input type="text" name="txtnit" id="txtnit"></td></tr>
-                <tr><td>Número celular:</td><td><input type="text" name="txtcelular" id="txtcelular"></td></tr>
-                <tr><td>Fecha de nacimiento:</td><td><input type="date" name="txtdate" id="txtdate"></td></tr>
-                <tr><td colspan="2" id="boton"><input type="button" value="Registrar" name="btnregistro" id="btnregistro">
-                <input type="reset" name="btnreset" id="btnreset" value="Borrar"></td></tr>
-            </table>
-        </form>
-        <h6>Sistema E-Wallet</h6>
-    </section>
-    -->
 </body>
 </html>

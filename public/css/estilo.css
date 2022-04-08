@@ -363,10 +363,7 @@ body{
 	height: 100%;
 	background: url("/img/fondo1.jpg");
 	background-size: cover;
-	overflow: scroll;
-	display: none;
-	animation-name: sec; 
-	animation-duration: 2s;
+
 	
 }
 
@@ -406,6 +403,11 @@ body{
 	top: 1%;
 }
 
+
+
+#links a{
+	color: white;
+}
 #ajustes img:hover{
 	cursor: pointer;
 }
@@ -560,7 +562,11 @@ background-color: black;
 color: #fff;
 width: 5%;
 text-align: center;
+}
 
+#mimagen {
+	width: 12%;
+	margin: auto;
 
 }
 
@@ -617,13 +623,10 @@ text-align: center;
 
 /*  Cuenta  */
 
-#cuentas{
-	display: none;
+#cuentas{	
 	position: absolute;
     top:15%;
     right: 25%;
-    animation-name: cuenta;
-    animation-duration: 2s;
 }
 
 
@@ -730,7 +733,7 @@ text-align: center;
 /* Configuracion */
 
 #configuracion{
-	display: none;
+	
 	position: absolute;
     top:10%;
     left: 25%;
@@ -770,58 +773,8 @@ text-align: center;
 
 /*-----------------*/
 
-#gestioncuentas{
-	background-color: rgba(0,0,0,.2);
-	position: absolute;
-    top:10%;
-    left: 25%;
-    display: none;
-    width: 50%;
-	border-radius: 8px;
-
-}
-
-#gestioncuentas h3{
-	text-align: center;
-	background-color: #2E8B57;
-	padding-top: 3%;
-	padding-bottom: 3%;
-	color: white;
-	border-top-right-radius: 6px;
-	border-top-left-radius: 6px;
-	margin: 0;
-	margin-bottom: 5%;
-}
-
-#gestioncuentas h6{
-	text-align: center;
-	background-color: #2E8B57;
-	padding-top: 3%;
-	padding-bottom: 4%;
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-	color: white;
-	margin: 0;
-	margin-top: 5%;
-}
 
 
-#gestioncuentas input[type="button"]{
-	width: 100%;
-	height: 40px;
-	background-color: rgba(46, 139, 87,.5);
-	color: #f2f2f2;
-	border-style: none;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#gestioncuentas input[type="button"]:hover{
-	cursor: pointer;
-	transition: 0.5s all;
-	background-color: rgba(46, 139, 87,1);
-
-}
 
 #btnvercuenta{
 	margin-left: 10%;
@@ -871,58 +824,6 @@ text-align: center;
 
 
 /*-----------------------------*/
-#efectivo{
-	display: none;
-	width: 100%;
-	height: 100%;	
-	background-color: rgba(0,0,0,0.7);
-	position: absolute;
-	z-index: 999;
-	transition: 0.5s All; 
-}
-
-#efectivo #ef{
-	background-color: rgba(255,255,255,1);
-	color: black;
-	width: 15%;
-	margin-left: 38%;
-	margin-top: 10%;
-	padding: 5%;
-	font-size: 20px;
-	border: 2px solid rgba(46, 139, 87,1);
-	border-radius: 10px;
-	position: absolute;
-	animation-name: mos;
-    animation-duration: 2s;
-}
-
-#efectivo h5{
-	margin-bottom: 10%; 
-}
-
-#efectivo p{
-	margin-top: 5%;
-	margin-bottom: 5%;
-	color: rgba(51, 119, 255,1);
-}
-
-#efectivo input[type="button"]{
-	margin-top: 5%;
-	width: 100%;
-	height: 40px;
-	background-color: rgba(46, 139, 87,.5);
-	color: #f2f2f2;
-	border-style: none;
-    border-radius: 5px;
-}
-
-#efectivo input[type="button"]:hover{
-
-	cursor: pointer;
-    background-color: rgba(46, 139, 87,1);
-    transition: 0.5s all;
-
-}
 
 #tarjetascredito{
 	position: absolute;
@@ -1076,23 +977,7 @@ text-align: center;
 	margin: 0;
 	margin-top: 5%;
 }
-#balance{
-	background-color: rgba(0,0,0,.2);
-	width: 50%;
-	border-radius: 8px;
-	position: absolute;
-	animation-name: config;
-	animation-duration: 2s;
-	display: none;
-	top: 10%;
-	left: 25%;
-}
-#balance table{
-	margin: 0 auto;
-}
-#balance td{
-	text-align: center;
-}
+
 
 /***********************************/
 
