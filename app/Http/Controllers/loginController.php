@@ -41,10 +41,11 @@ class loginController extends Controller
                 session(['id'=>$id]);
                 $cuentas=cuentas::where('id_usuario',$id)->get();
                 $i=0;
+                $valor=0;
                 //sumarizando el total de saldos en sus cuentas
                 for ($i=0;$i<$cuentas->count();$i++){
-                    $valor=+$cuentas[$i]->saldo;
-                }
+                    $valor = $valor + ($cuentas[$i]->saldo);
+                }                
                 session(['saldototal'=>$valor]);
                 return redirect()->route('index');
             }else{
