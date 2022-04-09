@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::post('/','loginController@ingresar')->name('ingresar');
 Route::get('/cerrar','loginController@cerrarsesion')->name('cerrarsesion');
+Route::post('/registro','loginController@registrar')->name('registrousuario');
 
 Route::get('/index', 'HomeController@index')->name('index');
 

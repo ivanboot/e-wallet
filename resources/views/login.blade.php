@@ -38,6 +38,7 @@
         <h6>Sistema E-Wallet</h6>
     </section>
 
+    <!-- Modal Registro -->
     <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -45,22 +46,27 @@
                     <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <table>
-                        <tr><td>Nombres:</td><td><input type="text" name="txtnombre" id="txtnombre"></td></tr>
-                        <tr><td>Apellidos:</td><td><input type="text" name="txtapellido" id="txtapellido"></td></tr>
-                        <tr><td>Correo:</td><td><input type="text" name="txtcorreo" id="txtcorreo"></td></tr>                
-                        <tr><td>Contraseña:</td><td><input type="password" name="txtcontra" id="txtcontra"></td></tr>                                            
-                </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  name="btnreset" id="btnreset" value="Borrar">Limpiar</button>
-                    <button type="button" class="btn btn-primary" value="Registrar" name="btnregistro" id="btnregistro">Registrar</button>
-                </div>
+                <form action="{{route('registrousuario')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <table>
+                            <tr><td>Nombres:</td><td><input type="text" name="txtnombre" id="txtnombre"></td></tr>
+                            <tr><td>Apellidos:</td><td><input type="text" name="txtapellido" id="txtapellido"></td></tr>
+                            <tr><td>Correo:</td><td><input type="text" name="txtcorreo" id="txtcorreo"></td></tr>                
+                            <tr><td>Contraseña:</td><td><input type="password" name="txtcontra" id="txtcontra"></td></tr>                                            
+                    </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" name="btningresar" id="btningresar" value="Registrar">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"  name="btnreset" id="btnreset" value="Borrar">Limpiar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <!-- Fin Modal Registro -->
 
+    <!-- Modal Recuperación -->
     <div class="modal fade" id="recuperacion" tabindex="-1" aria-labelledby="recuperacionLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuarios;
 use App\cuentas;
+use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
 {
@@ -58,6 +59,24 @@ class loginController extends Controller
     public function cerrarsesion(Request $request)
     {
         session()->flush();
+        return redirect()->route('/');
+    }
+
+    public function registrar(Request $request)
+    {
+        $nombre = $request->get('txtnombre');
+        $apellido = $request->get('txtapellido');
+        $correo = $request->get('txtcorreo');
+        //Encriptando contraseña ingresada por el usuario
+        $contra = Hash::make($request->get('txtcontra'));
+
+        Usuarios::create([
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'correo' => $correo,
+            'clave' => $contra
+        ]);
+
         return redirect()->route('/');
     }
 }
