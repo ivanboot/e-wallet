@@ -11,11 +11,14 @@
 </head>
 <body>
     <section id="login" class="section">
-        <form name="frmlogin" id="frmlogin">
+        <form name="frmlogin" id="frmlogin" method="POST" action="{{route('ingresar')}}">
+        @csrf
             <h3>Login</h3>
             <table>
+            @include('mensajes')
                 <tr><td>Nombre de Usuario:</td><td>Contraseña:</td></tr>
-                <tr><td><input type="text" id="txtuser" name="txtuser"></td><td><input type="password" id="txtpassword" name="txtpassword"></td></tr>
+                <tr><td><input class="form-control" type="text" id="txtuser" name="txtuser" value="{{old('txtuser')}}"></td><td><input class="form-control" type="password" id="txtpassword" name="txtpassword" value="{{old('txtpassword')}}"></td></tr>
+                
                 <tr id="link">
                     <td id="olvidar">
                         <a href="#" role="button" id="linkcontra" name="linkcontra" data-bs-toggle="modal" data-bs-target="#recuperacion">Has olvidado tu contraseña?</a>
@@ -26,7 +29,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" id="boton">
-                        <input type="button" name="btningresar" id="btningresar" value="Ingresar"><input type="reset" name="btnreset" id="btnreset" value="Borrar">
+                        <input type="submit" name="btningresar" id="btningresar" value="Ingresar"><input type="reset" name="btnreset" id="btnreset" value="Borrar">
                     </td>
                 </tr>
             </table>

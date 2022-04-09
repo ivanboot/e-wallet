@@ -60,7 +60,7 @@ body{
 	padding-right: 15%;
     padding-top: 5%;
 }
-#login input[type="button"]{
+#login input[type="submit"]{
 	width: 45%;
     margin-right: 10%;
 	height: 40px;

@@ -1,3 +1,4 @@
+@if(Session::has('id'))
 <!DOCTYPE>
 <html>
 <head>
@@ -13,7 +14,7 @@
 <section id="folo" class="section">
     <nav class="navbar navbar-expand-lg navbar-black bg-black">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:green;">E-Wallet Balance:</a>
+            <a class="navbar-brand" style="color:green;">E-Wallet Balance: ${{session::get('saldototal')}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,7 +39,7 @@
                         <a class="nav-link" href="{{route('opciones')}}">Opciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('/')}}">Cerrar sesión</a>
+                        <a class="nav-link" href="{{route('cerrarsesion')}}">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
@@ -48,3 +49,8 @@
     @yield('contenido')
 </body>
 </html>
+@else
+    <script type="text/javascript">
+        window.location = "{{ url('/')}}";
+    </script>
+@endif

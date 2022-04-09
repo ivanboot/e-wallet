@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('login');
 })->name('/');
 
+Route::post('/','loginController@ingresar')->name('ingresar');
+Route::get('/cerrar','loginController@cerrarsesion')->name('cerrarsesion');
+
 Route::get('/index', 'HomeController@index')->name('index');
 
 Route::get('/cuentas', 'cuentasController@index')->name('cuentas');

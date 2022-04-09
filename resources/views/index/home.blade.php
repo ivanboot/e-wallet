@@ -2,7 +2,7 @@
 
 @section('contenido')
 <section id="menu" class="section">    
-    <h3 id="welcome">Bienvenido</h3>
+    <h3 id="welcome">Bienvenido {{$query[0]->nombre}}</h3>
 
     <div class="row">
         <div class="col">
