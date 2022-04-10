@@ -28,15 +28,20 @@ class loginController extends Controller
         ]);
         
         $user=$request->get('txtuser');
-        $query=Usuarios::where('nombre',$user)->get();
+        $query=usuarios::where('nombre',$user)->get();
         
+        
+
         if($query->count() != 0)
         {
+           
+
             $hashpass=$query[0]->clave;
             $clave=$request->get('txtpassword');
 
             if(password_verify($clave,$hashpass))
             {
+
                 $id=$query[0]->id;
                 session(['id'=>$id]);
                 $cuentas=cuentas::where('id_usuario',$id)->get();

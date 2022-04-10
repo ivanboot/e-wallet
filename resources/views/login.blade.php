@@ -17,7 +17,8 @@
             <table>
             @include('mensajes')
                 <tr><td>Nombre de Usuario:</td><td>Contraseña:</td></tr>
-                <tr><td><input class="form-control" type="text" id="txtuser" name="txtuser" value="{{old('txtuser')}}"></td><td><input class="form-control" type="password" id="txtpassword" name="txtpassword" value="{{old('txtpassword')}}"></td></tr>
+                <tr><td><input class="form-control" type="text" id="txtuser" name="txtuser" value="{{old('txtuser')}}"></td>
+                <td><input class="form-control" type="password" id="txtpassword" name="txtpassword" value="{{old('txtpassword')}}"></td></tr>
                 
                 <tr id="link">
                     <td id="olvidar">
