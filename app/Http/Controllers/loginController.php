@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuarios;
 use App\cuentas;
+use App\tipo_cuentas;
 use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
@@ -57,6 +58,7 @@ class loginController extends Controller
                     session(['saldototal'=>$valor]);
                     return redirect()->route('index');
                 }else{
+                   
                     return redirect()->route('nuevacuenta');
                 }
                 
@@ -95,6 +97,10 @@ class loginController extends Controller
 
     public function nuevacuenta(Request $request)
     {
-        return view('crearcuenta');
+        
+        $query = tipo_cuentas::all();
+        $nombre=$query[0];
+        
+        return view('crearcuenta',['query'=>$query]);
     }
 }

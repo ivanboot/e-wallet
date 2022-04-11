@@ -21,11 +21,14 @@ Route::get('/cerrar','loginController@cerrarsesion')->name('cerrarsesion');
 Route::post('/registro','loginController@registrar')->name('registrousuario');
 Route::get('/nuevacuenta','loginController@nuevacuenta')->name('nuevacuenta');
 
+
 /* Rutas homeController */
 Route::get('/index', 'HomeController@index')->name('index');
 
 /* Rutas cuentasController */
 Route::get('/cuentas', 'cuentasController@index')->name('cuentas');
+
+Route::post('/ingresarCuenta','cuentasController@ingresarCuenta')->name('ingresarCuenta');
 
 /* Rutas ingresosController */
 Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
