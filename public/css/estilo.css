@@ -294,13 +294,11 @@ body{
 
 /*-----------------------*/
 /* CSS PARA #datos  EMPIEZA AQUI*/
-#datos{
-	display: none;
+#datos{	
 	position: absolute;
     top:15%;
     left: 25%;
-    animation-name: dat;
-    animation-duration: 2s;
+
 }
 
 #datos #boton{

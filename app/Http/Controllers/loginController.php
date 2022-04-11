@@ -45,14 +45,21 @@ class loginController extends Controller
                 $id=$query[0]->id;
                 session(['id'=>$id]);
                 $cuentas=cuentas::where('id_usuario',$id)->get();
-                $i=0;
-                $valor=0;
-                //sumarizando el total de saldos en sus cuentas
-                for ($i=0;$i<$cuentas->count();$i++){
-                    $valor = $valor + ($cuentas[$i]->saldo);
-                }                
-                session(['saldototal'=>$valor]);
-                return redirect()->route('index');
+                
+                //Comprobando si es nuevo usuario (no tiene cuentas) o si es antiguo usuario (con cuentas registradas)
+                if($cuentas->count() != 0){
+                    $i=0;
+                    $valor=0;
+                    //sumarizando el total de saldos en sus cuentas
+                    for ($i=0;$i<$cuentas->count();$i++){
+                        $valor = $valor + ($cuentas[$i]->saldo);
+                    }                
+                    session(['saldototal'=>$valor]);
+                    return redirect()->route('index');
+                }else{
+                    return redirect()->route('nuevacuenta');
+                }
+                
             }else{
                 return back()->with(['info'=>'usuario o contraseña incorrecta']);
             }
@@ -84,5 +91,10 @@ class loginController extends Controller
         ]);
 
         return redirect()->route('/');
+    }
+
+    public function nuevacuenta(Request $request)
+    {
+        return view('crearcuenta');
     }
 }
