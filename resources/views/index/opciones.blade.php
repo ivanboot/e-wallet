@@ -37,14 +37,43 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table>
-                        <tr>
-                            <td>Su efectivo actual es:</td>
-                        </tr>
-                        <tr>
-                            <td>$</td>
-                        </tr>
-                </table>
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <p class="fw-bold">Nombre</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{$usuario[0]->nombre}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <p class="fw-bold">Apellido</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{$usuario[0]->apellido}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <p class="fw-bold">Correo</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{$usuario[0]->correo}}</p>
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <p class="fw-bold">Cuentas</p>
+                            </div>
+                            <div class="col-6">
+                                <p>{{$cuentas->count()}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" value="Registrar" name="btnregistro" id="btnregistro">Continuar</button>
@@ -61,18 +90,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table>
-                        <tr>
-                            <td>Indicar nuevo balance:</td>
-                         </tr>
-                        <tr>
-                            <td>$</td>
-                        </tr>
-                </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="fw-bold">Balance Actual:</p>
+                            </div>
+                            <div class="col-6">
+                                <p>$ {{$usuario[0]->balance}}</p>
+                            </div>
+                            <div class="col-12">
+                                <form action="{{route('nuevobalance')}}" method="post">
+                                    <div class="form-group">
+                                      <label class="form-label" for="nuevobalance">Nuevo balance</label>
+                                      <input type="text" class="form-control" name="txtnuevobalance" id="txtnuevobalance"  placeholder="($0.00)" require>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary mt-3" value="Enviar">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" value="Registrar" name="btnregistro" id="btnregistro">Continuar</button>
-                </div>
+               <!--  <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                </div> -->
             </div>
         </div>
     </div>
