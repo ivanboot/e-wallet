@@ -13,6 +13,7 @@ class CuentasController extends Controller
         return view('index/cuentas');
     }
 
+    //Ocurre cuando el usuario se logea por primera vez y debe registrar su primera cuenta
     public function ingresarCuenta(Request $request){
         $numero=$request->get('txtNumero');
         $nombre=$request->get('txtnombrecuenta');
@@ -37,4 +38,5 @@ class CuentasController extends Controller
 
         return redirect()->route('index');
     }
+
 }

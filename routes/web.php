@@ -27,7 +27,6 @@ Route::get('/index', 'HomeController@index')->name('index');
 
 /* Rutas cuentasController */
 Route::get('/cuentas', 'cuentasController@index')->name('cuentas');
-
 Route::post('/ingresarCuenta','cuentasController@ingresarCuenta')->name('ingresarCuenta');
 
 /* Rutas ingresosController */
