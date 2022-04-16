@@ -37,7 +37,7 @@ Route::get('/egresos', 'egresosController@index')->name('egresos');
 
 /* Rutas opcionesController */
 Route::get('/opciones', 'opcionesController@index')->name('opciones');
-Route::patch('/balance', 'opcionesController@nuevobalance')->name('nuevobalance');
+Route::post('/balance', 'opcionesController@nuevobalance')->name('nuevobalance');
 
 /* Rutas estadisticasController */
 Route::get('/estadisticas', 'estadisticasController@index')->name('estadisticas');

@@ -43,7 +43,7 @@
                                 <p class="fw-bold">Nombre</p>
                             </div>
                             <div class="col-6">
-                                <p>{{$usuario[0]->nombre}}</p>
+                                <p>{{$usuarios[0]->nombre}}</p>
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                                 <p class="fw-bold">Apellido</p>
                             </div>
                             <div class="col-6">
-                                <p>{{$usuario[0]->apellido}}</p>
+                                <p>{{$usuarios[0]->apellido}}</p>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                                 <p class="fw-bold">Correo</p>
                             </div>
                             <div class="col-6">
-                                <p>{{$usuario[0]->correo}}</p>
+                                <p>{{$usuarios[0]->correo}}</p>
                             </div>
                         </div>
 
@@ -96,10 +96,11 @@
                                 <p class="fw-bold">Balance Actual:</p>
                             </div>
                             <div class="col-6">
-                                <p>$ {{$usuario[0]->balance}}</p>
+                                <p>$ {{$usuarios[0]->balance}}</p>
                             </div>
                             <div class="col-12">
-                                <form action="{{route('nuevobalance')}}" method="post">
+                                <form action="{{route('nuevobalance')}}" method="POST">
+                                    @csrf
                                     <div class="form-group">
                                       <label class="form-label" for="nuevobalance">Nuevo balance</label>
                                       <input type="text" class="form-control" name="txtnuevobalance" id="txtnuevobalance"  placeholder="($0.00)" require>
