@@ -38,6 +38,7 @@ Route::get('/egresos', 'egresosController@index')->name('egresos');
 /* Rutas opcionesController */
 Route::get('/opciones', 'opcionesController@index')->name('opciones');
 Route::post('/balance', 'opcionesController@nuevobalance')->name('nuevobalance');
+Route::post('/nuevacontra', 'opcionesController@nuevacontra')->name('nuevacontra');
 
 /* Rutas estadisticasController */
 Route::get('/estadisticas', 'estadisticasController@index')->name('estadisticas');

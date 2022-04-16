@@ -126,15 +126,33 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table>
+                    <div class="col-12">
+                        <form action="{{route('nuevacontra')}}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label class="form-label" for="nuevobalance">Contraseña Actual</label>
+                                <input type="password" class="form-control" name="txtcontra" id="txtcontra"  placeholder="Contraseña Actual" require>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="nuevobalance">Contraseña Nueva</label>
+                                <input type="password" class="form-control" name="txtnuevacontra" id="txtnuevacontra"  placeholder="Contraseña Nueva" require>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="nuevobalance">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="txtconfirmarcontra" id="txtconfirmarcontra"  placeholder="Confirmar Contraseña" require>
+                            </div>
+                            <input type="submit" class="btn btn-primary mt-3" value="Continuar">
+                        </form>
+                    </div>
+                    <!-- <table>
                          <tr><td>Contraseña actual:</td><td><input type="password" name="txtcontraactual" id="txtcontraactual"></td></tr>
                         <tr><td>Nueva contraseña:</td><td><input type="text" name="txtncontra" id="txtncontra"></td></tr>
                         <tr><td>Repetir contraseña:</td><td><input type="text" name="txtrcontra" id="txtrcontra"></td></tr>                
-                    </table>
+                    </table> -->
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-primary" value="Registrar" name="btnregistro" id="btnregistro">Continuar</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
