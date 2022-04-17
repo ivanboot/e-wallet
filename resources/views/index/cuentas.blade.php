@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col">            
                 <div id="subcuenta3">
-                    <a href="#" style="text-decoration:none; color:black;">
+                    <a href="{{route('nuevaCuenta')}}" style="text-decoration:none; color:black;">
                         <input type="image" src="/img/Tarjeta_credito.png" name="imgcredito" id="imgcredito" data-bs-toggle="modal" data-bs-target="#nuevacuenta">
                         <h4 >Nueva cuenta</h4>
                     </a>
@@ -43,8 +43,8 @@
                 <div class="modal-body">
                     <table>
                         <tr><td>Su efectivo actual es:</td></tr>
-                        <tr><td>$</td><td></tr>
-                </table>
+                        <tr><td>${{$saldototal}}</td><td></tr>
+                    </table>
                 <table class="table table-striped" >
                     <thead>
                         <tr>
@@ -55,13 +55,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($cuentas as $cuenta)
                         <tr>
-                            <td>123549</td>
-                            <td>Fondos pa pistear</td>
-                            <td>$500</td>
-                            <td>Ahorro</td>
-                            
-                        </tr>                       
+                            <td>{{$cuenta->numero}}</td>
+                            <td>{{$cuenta->nombre}}</td>
+                            <td>{{$cuenta->saldo}}</td>
+                            <td>{{$cuenta->nombres}}</td>
+                        </tr> 
+                    @endforeach                     
                     </tbody>
                 </table>
                 </div>
@@ -86,22 +87,24 @@
                             <th scope="col">Número de cuenta</th>
                             <th scope="col">Nombre de cuenta</th>
                             <th scope="col">Tipo de cuenta</th>
-                            <th scope="col" colspan="2" class="text-center">#</th>
+                            <th scope="col" colspan="2" class="text-center">Operaciones</th>
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($cuentas as $cuenta)
                         <tr>
-                            <td>123549</td>
-                            <td>Fondos pa pistear</td>
-                            <td>Ahorro</td>
+                            <td>{{$cuenta->numero}}</td>
+                            <td>{{$cuenta->nombre}}</td>
+                            <td>{{$cuenta->nombres}}</td>
                             <td>
-                                <a href="#" style="text-decoration:none;"><i class="bi bi-pencil-square"></i></a>                                
+                                <a href="{{route('editarCuenta', $cuenta->id)}}" style="text-decoration:none;"><i class="bi bi-pencil-square"></i></a>                                
                             </td>
                             <td>
-                                <a href="#" style="text-decoration:none;"><i class="bi bi-trash3-fill"></i></a>
+                                <a href="{{route('eliminarCuenta', $cuenta->id)}}" style="text-decoration:none;"><i class="bi bi-trash3-fill"></i></a>
                             </td>
                             
-                        </tr>                       
+                        </tr> 
+                    @endforeach                      
                     </tbody>
                     </table>
                 </div>

@@ -1,6 +1,8 @@
 @extends('index')
 
 @section('contenido')
+<form action="{{route('cuentaNueva')}}" method="POST">
+@csrf
     <section id="datos" class="section" >
         <h3 style="background-color: #2E8B57">Registro de nueva cuenta</h3>
             <table>
@@ -17,9 +19,12 @@
                     <td><input type="text" name="txtsaldo" id="txtsaldo"></td>
                 </tr>
                 <tr>
-                    <td>tipo de cuenta:</td>
+                    <td>Tipo de cuenta:</td>
                     <td>
-                        <select name="slcTipoCuenta">                            
+                        <select name="slcTipoCuenta"> 
+                        @foreach($tipocuentas as $tipocuenta)
+                            <option value="{{$tipocuenta->id}}">{{$tipocuenta->nombres}}</option>
+                        @endforeach                           
                         </select>
                     </td>
                 </tr>               
@@ -32,4 +37,5 @@
             <div></div>
         <h6 style="background-color: #2E8B57">Sistema E-Wallet</h6>
     </section>
+</form>
 @endsection

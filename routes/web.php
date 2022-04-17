@@ -28,6 +28,11 @@ Route::get('/index', 'HomeController@index')->name('index');
 /* Rutas cuentasController */
 Route::get('/cuentas', 'cuentasController@index')->name('cuentas');
 Route::post('/ingresarCuenta','cuentasController@ingresarCuenta')->name('ingresarCuenta');
+Route::get('/editarCuenta/{id}', 'cuentasController@editarCuenta')->name('editarCuenta');
+Route::post('/actualizarCuenta', 'cuentasController@actualizarCuenta')->name('actualizarCuenta');
+Route::get('/nuevaCuenta', 'cuentasController@nuevaCuenta')->name('nuevaCuenta');
+Route::post('/cuentaNueva', 'cuentasController@cuentaNueva')->name('cuentaNueva');
+Route::get('/eliminarCuenta/{id}', 'cuentasController@eliminarCuenta')->name('eliminarCuenta');
 
 /* Rutas ingresosController */
 Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
