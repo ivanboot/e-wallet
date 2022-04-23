@@ -660,7 +660,7 @@ text-align: center;
 
 /* Ingresos */
 #ingresos{
-	display: none;
+	
 	position: absolute;
     top:10%;
     left: 25%;
@@ -670,8 +670,8 @@ text-align: center;
 
 #ingresos table, #gastos table{
 	margin: 0 auto;
-	width: 92%;
-	margin-left: 4%;
+	width: 97%;
+	color: white;
 
 }
 #ingresos th, #gastos th{
@@ -681,15 +681,12 @@ text-align: center;
 	background-color: rgba(0,0,0,0.7);
 }
 #ingresos td, #gastos td{
-	font-size: 15px;
+	font-size: 17px;
 	text-align: center;
+	padding-bottom: 5px;
 	background-color: rgba(0,0,0,0.5);
 }
-#ingresos div, #gastos div{
-	text-align: right;
-	margin-right: 5%;
-	margin-top: 2%;
-}
+
 #ingresos input[type="text"], #gastos input[type="text"]{
 	width: 90%;
 }

@@ -1,64 +1,36 @@
 @extends('index')
 
 @section('contenido')
-<section id="menu" class="section">    
-    <h3 id="welcome">Bienvenido</h3>
-
-    <article id="cuenta">
-
-        <div class="contenedor-img ejemplo-1">  
-             <img src="/img/cuaderno.png"/>  
-             <div class="mascara">  
-                 <h2>Cuentas</h2>  
-                 <p></p>
-                 <a id="linkcuenta" href="#" class="link">Entrar</a>  
-             </div>  
-        </div>    
-
-    </article>
-
-    <article id="ingreso">
-
-
-        <div class="contenedor-img ejemplo-1">  
-             <img src="/img/presentacion.png" />  
-             <div class="mascara">  
-                 <h2>Ingresos</h2>  
-                 <p></p>
-                 <a id="linkingreso" href="#" class="link">Entrar</a>  
-             </div>  
-        </div>    
-
-    </article>
-    <article id="gasto">
-        <div class="contenedor-img ejemplo-1">  
-             <img src="/img/cambiar.png" />  
-             <div class="mascara">  
-                 <h2>Gastos</h2>  
-                 <p></p>
-                 <a id="linkgasto" href="#" class="link">Entrar</a>  
-             </div>  
-        </div>
-
-    </article>
-    <article id="est">
-
-        <div class="contenedor-img ejemplo-1">  
-             <img src="/img/grafico.png" />  
-             <div class="mascara">  
-                 <h2>Estadística</h2>  
-                 <p></p>
-                 <a id="linkestadistica" href="#" class="link">Entrar</a>  
-             </div>  
-        </div>
-
-    </article>
-    <article id="ajustes">
+<section id="ingresos" class="section">
+    
+        <h3><a href="{{route('index')}}"><img src="/img/regresar.png" name="regresarcuenta" id="regresarcuenta" class="regresar"></a>Ingresos</h3>
+         <div class="container">
+             <a href="#" class="btn btn-success btn-lg" style="margin-bottom:1%;" >Nuevo registro</a>
+         </div>
+        <form>
+        <table id="tabla_ingresos">
+            <tr>
+                <th>Fecha</th>
+                <th>Motivo</th>
+                <th>Monto</th>
+                <th>Cuenta almacenada</th>
+                <th  colspan="2" class="text-center">Operaciones</th>
+            </tr>
+            <tr>
+                <td>25/02/2005</td>
+                <td>Quelin...</td>
+                <td>Más que tu casa</td>
+                <td>La mia obvio</td>
+                <td>
+                    <a href="#" class="btn btn-secondary" style="text-decoration:none;"><i class="bi bi-pencil-square"></i></a>                                
+                </td>
+                <td>
+                    <a href="#" class="btn btn-secondary" style="text-decoration:none;"><i class="bi bi-trash3-fill"></i></a>
+                </td>
+            </tr>
+        </table>
+        <form>
         
-        <img id="linkajuste" src="/img/ajustes.png" />  
-
-
-    </article>
-
-</section>
+        <h6>Sistema E-Wallet</h6>
+    </section>
 @endsection
