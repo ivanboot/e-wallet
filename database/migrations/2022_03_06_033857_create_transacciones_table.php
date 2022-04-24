@@ -22,8 +22,7 @@ class CreateTransaccionesTable extends Migration
             $table->string('motivo');
 
             $table->foreign('id_tipo_transaccion')->references('id')->on('tipo_transacciones')->onDelete('cascade');
-            $table->foreign('id_cuenta')->references('id')->on('cuentas')->onDelete('cascade');
-            $table->foreign('id_motivo')->references('id')->on('motivos')->onDelete('cascade');
+            $table->foreign('id_cuenta')->references('id')->on('cuentas')->onDelete('cascade');            
 
             $table->timestamps();
         });
