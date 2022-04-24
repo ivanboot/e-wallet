@@ -19,7 +19,7 @@ class CreateTransaccionesTable extends Migration
 
             $table->unsignedBigInteger('id_cuenta');
             $table->unsignedBigInteger('id_tipo_transaccion');
-            $table->unsignedBigInteger('id_motivo');
+            $table->string('motivo');
 
             $table->foreign('id_tipo_transaccion')->references('id')->on('tipo_transacciones')->onDelete('cascade');
             $table->foreign('id_cuenta')->references('id')->on('cuentas')->onDelete('cascade');
