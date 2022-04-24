@@ -40,28 +40,16 @@ class CuentasController extends Controller
             'id_usuario' => session('id')
         ]);
 
-        $cuentas=cuentas::where('id_usuario', session('id'))->get();
-        $i=0;
-        $valor=0;
-        //sumarizando el total de saldos en sus cuentas
-        for ($i=0;$i<$cuentas->count();$i++){
-            $valor = $valor + ($cuentas[$i]->saldo);
-        }                
-        session(['saldototal'=>$valor]);
+        $this->calcularSaldo();
+        $this->comprobarBalance();
 
         return redirect()->route('cuentas');
     }
-
+    
     public function eliminarCuenta(int $id){
         DB::table('cuentas')->where('id', '=', $id)->delete();
-        $cuentas=cuentas::where('id_usuario', session('id'))->get();
-        $i=0;
-        $valor=0;
-        //sumarizando el total de saldos en sus cuentas
-        for ($i=0;$i<$cuentas->count();$i++){
-            $valor = $valor + ($cuentas[$i]->saldo);
-        }                
-        session(['saldototal'=>$valor]);
+        $this->calcularSaldo();
+        $this->comprobarBalance();
         return redirect()->route('cuentas');
     }
 
@@ -99,14 +87,8 @@ class CuentasController extends Controller
             'id_usuario' => session('id')
         ]);
 
-        $cuentas=cuentas::where('id_usuario', session('id'))->get();
-        $i=0;
-        $valor=0;
-        //sumarizando el total de saldos en sus cuentas
-        for ($i=0;$i<$cuentas->count();$i++){
-            $valor = $valor + ($cuentas[$i]->saldo);
-        }                
-        session(['saldototal'=>$valor]);
+        $this->calcularSaldo();
+        $this->comprobarBalance();
 
         return redirect()->route('index');
     }

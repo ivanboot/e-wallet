@@ -27,6 +27,8 @@ class opcionesController extends Controller
             'balance' => $balance,
         ]);;
 
+        $this->comprobarBalance();
+        
         return redirect()->route('opciones');
     }
 

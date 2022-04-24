@@ -15,7 +15,13 @@
 <section id="folo" class="section">
     <nav class="navbar navbar-expand-lg navbar-black bg-black">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:green;">E-Wallet Balance: ${{session::get('saldototal')}}</a>
+            @if(session::get('balance')==1)
+                <a class="navbar-brand" style="color:green;">
+            @else
+                <a class="navbar-brand" style="color:red;">
+            @endif
+            E-Wallet Balance: ${{session::get('saldototal')}}
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

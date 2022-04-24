@@ -49,13 +49,9 @@ class loginController extends Controller
                 
                 //Comprobando si es nuevo usuario (no tiene cuentas) o si es antiguo usuario (con cuentas registradas)
                 if($cuentas->count() != 0){
-                    $i=0;
-                    $valor=0;
-                    //sumarizando el total de saldos en sus cuentas
-                    for ($i=0;$i<$cuentas->count();$i++){
-                        $valor = $valor + ($cuentas[$i]->saldo);
-                    }                
-                    session(['saldototal'=>$valor]);
+
+                    $this->calcularSaldo();
+                    $this->comprobarBalance();                    
                     return redirect()->route('index');
                 }else{
                    
