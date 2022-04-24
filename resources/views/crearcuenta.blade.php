@@ -39,7 +39,7 @@
                     <td>
                         <select name="slcTipoCuenta">
                             @foreach($query as $cuentas)
-                            <option value="{{$cuentas->id}}">{{$cuentas->nombre}}</option>
+                            <option value="{{$cuentas->id}}">{{$cuentas->nombres}}</option>
                             @endforeach
                         </select>
                     </td>

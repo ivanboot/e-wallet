@@ -14,8 +14,7 @@ class CuentasSeeder extends Seeder
     {
         cuentas::create([
             'numero' => '123456789',
-            'nombre' => 'Cuenta de Ahorros',
-            'saldo' => 100,
+            'nombre' => 'Cuenta de Ahorros',            
             'id_usuario' => 1,
             'id_tipo_cuenta' => 1
         ]);

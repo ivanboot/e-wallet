@@ -16,8 +16,7 @@ class CreateCuentasTable extends Migration
         Schema::create('cuentas', function (Blueprint $table) {
             $table->bigIncrements('id');;
             $table->string('numero')->unique();
-            $table->string('nombre');
-            $table->float('saldo', 8, 2);
+            $table->string('nombre');            
             $table->unsignedBigInteger('id_tipo_cuenta')->unsigned();
             $table->unsignedBigInteger('id_usuario')->unsigned();
 

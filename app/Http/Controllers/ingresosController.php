@@ -10,16 +10,16 @@ use App\transacciones;
 class ingresosController extends Controller
 {
     public function index(){
+        
         $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
         $transacciones = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
-        ->join('usuarios', 'cuentas.id', '=', 'usuarios.id')
-        ->join('tipo_transacciones', 'transacciones.id_tipo_transaccion', '=', 'tipo_transacciones.id')
-        ->select('transacciones.*', 'tipo_transacciones.tipo_transaccion','cuentas.nombre' )
+        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
+        ->select('transacciones.*','cuentas.nombre' )
         ->where('transacciones.id_tipo_transaccion', '=', 1)
         ->where('usuarios.id', '=', session('id'))
         ->get();
-        //dd($transacciones);
+        
         return view('index/ingresos',['transacciones'=>$transacciones]);
     }
 

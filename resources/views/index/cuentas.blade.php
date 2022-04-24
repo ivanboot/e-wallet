@@ -42,8 +42,9 @@
                 </div>
                 <div class="modal-body">
                     <table>
-                        <tr><td>Su efectivo actual es:</td></tr>
-                        <tr><td>${{$saldototal}}</td><td></tr>
+                        
+                        <tr><td>                            
+                        </td><td></tr>
                     </table>
                 <table class="table table-striped" >
                     <thead>
@@ -54,15 +55,17 @@
                             <th scope="col">Tipo de cuenta</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    @foreach($cuentas as $cuenta)
+                    <tbody>                    
+                    @for ($i = 0; $i < $cuentas->count(); $i++)
+                    
                         <tr>
-                            <td>{{$cuenta->numero}}</td>
-                            <td>{{$cuenta->nombre}}</td>
-                            <td>{{$cuenta->saldo}}</td>
-                            <td>{{$cuenta->nombres}}</td>
-                        </tr> 
-                    @endforeach                     
+                            <td>{{$cuentas[$i]->numero}}</td>
+                            <td>{{$cuentas[$i]->nombre}}</td>
+                            <td>{{$saldocuenta[$i]}}</td>
+                            <td>{{$cuentas[$i]->nombres}}</td>
+                        </tr>
+                    
+                    @endfor                     
                     </tbody>
                 </table>
                 </div>

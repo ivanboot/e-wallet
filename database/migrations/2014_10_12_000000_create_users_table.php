@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->string('apellido')->nullable();
             $table->string('correo')->unique();
-            $table->float('balance', 8, 2);            
+            $table->float('balance', 8, 2)->default(0);            
             $table->string('clave');
             $table->rememberToken();
             $table->timestamps();

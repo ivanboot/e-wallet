@@ -7,18 +7,25 @@ use Illuminate\Support\Facades\DB;
 use App\Usuarios;
 use App\cuentas;
 use App\tipo_cuentas;
+use App\transacciones;
 
 class CuentasController extends Controller
 {
     public function index(){           
         $saldototal=session('saldototal');
+       
         $cuentas=cuentas::where('id_usuario', session('id'))->get();
         $cuentas = DB::table('cuentas')
             ->join('tipo_cuentas', 'cuentas.id_tipo_cuenta', '=', 'tipo_cuentas.id')
             ->select('cuentas.*', 'tipo_cuentas.nombres')
             ->where('cuentas.id_usuario', '=', session('id'))
             ->get();
-        return view('index/cuentas', ['cuentas'=>$cuentas], ['saldototal'=>$saldototal]);
+        
+        for($i=0;$i<$cuentas->count();$i++){
+            $saldocuenta[$i]=$this->retornarSaldoCuenta($cuentas[$i]->id);
+        }
+        
+        return view('index/cuentas', ['cuentas'=>$cuentas], ['saldocuenta'=>$saldocuenta]);
 
     }
 
@@ -32,12 +39,20 @@ class CuentasController extends Controller
         $nombre=$request->get('txtnombrecuenta');
         $saldo=$request->get('txtsaldo');
         $tipo=$request->get('slcTipoCuenta');
-        cuentas::create([
+        
+        $cuenta=cuentas::create([
             'numero' => $numero,
             'nombre' => $nombre,
-            'saldo' => $saldo,
             'id_tipo_cuenta' => $tipo,
             'id_usuario' => session('id')
+        ]);
+        
+       
+        transacciones::create([
+            'monto' => $saldo,
+            'id_cuenta' => $cuenta->id,
+            'id_tipo_transaccion' => 1,
+            'motivo' => 'Saldo inicial'
         ]);
 
         $this->calcularSaldo();
@@ -79,18 +94,24 @@ class CuentasController extends Controller
         $nombre=$request->get('txtnombrecuenta');
         $saldo=$request->get('txtsaldo');
         $tipo=$request->get('slcTipoCuenta');
-        cuentas::create([
+        $cuenta=cuentas::create([
             'numero' => $numero,
-            'nombre' => $nombre,
-            'saldo' => $saldo,
+            'nombre' => $nombre,            
             'id_tipo_cuenta' => $tipo,
             'id_usuario' => session('id')
         ]);
-
+        
+        transacciones::create([
+            'monto' => $saldo,
+            'id_cuenta' => $cuenta->id,
+            'id_tipo_transaccion' => 1,
+            'motivo' => 'Saldo inicial'
+        ]);
         $this->calcularSaldo();
         $this->comprobarBalance();
 
         return redirect()->route('index');
     }
 
+    
 }
