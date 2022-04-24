@@ -24,11 +24,7 @@
                 <tr>
                     <td>Cuenta:</td>
                     <td>
-                    <select name="slcMotivo">
-                            @foreach($motivos as $motivo)
-                            <option value="{{$motivo->id}}">{{$motivo->motivo}}</option>
-                            @endforeach
-                        </select>
+                    <textarea name="txtMotivo"></textarea>
                     </td>
                 </tr>                             
                 <tr >                   

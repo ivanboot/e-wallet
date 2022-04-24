@@ -2,25 +2,48 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\cuentas;
-use App\tipo_cuentas;
-use App\motivos;
+use App\transacciones;
+
 
 class ingresosController extends Controller
 {
     public function index(){
-        return view('index/ingresos');
+        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $transacciones = DB::table('transacciones')
+        ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
+        ->join('usuarios', 'cuentas.id', '=', 'usuarios.id')
+        ->join('tipo_transacciones', 'transacciones.id_tipo_transaccion', '=', 'tipo_transacciones.id')
+        ->select('transacciones.*', 'tipo_transacciones.tipo_transaccion','cuentas.nombre' )
+        ->where('transacciones.id_tipo_transaccion', '=', 1)
+        ->where('usuarios.id', '=', session('id'))
+        ->get();
+        //dd($transacciones);
+        return view('index/ingresos',['transacciones'=>$transacciones]);
     }
 
     public function nuevoIngreso(){
         $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
-        $motivos = motivos::all();
-        return view('index/nuevoingreso',['cuentas'=>$cuentasuser],['motivos'=>$motivos] );
+       
+        return view('index/nuevoingreso',['cuentas'=>$cuentasuser]);
     }
 
-    public function ingresarIngreso(){
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
-        $motivos = motivos::all();
-        return view('index/nuevoingreso',['cuentas'=>$cuentasuser],['motivos'=>$motivos] );
+    public function ingresarIngreso(Request $request){
+        
+        $monto=$request->get('txtmonto');
+        $cuenta=$request->get('slcCuenta');
+        $motivo=$request->get('txtMotivo');
+        transacciones::create([
+            'monto' => $monto,
+            'id_cuenta' => $cuenta,
+            'id_tipo_transaccion' => 1,
+            'motivo' => $motivo
+        ]);
+
+        $this->calcularSaldo();
+        $this->comprobarBalance();
+
+        return redirect()->route('ingresos');
     }
 }

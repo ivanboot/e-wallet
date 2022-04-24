@@ -16,11 +16,12 @@
                 <th>Cuenta almacenada</th>
                 <th  colspan="2" class="text-center">Operaciones</th>
             </tr>
+            @foreach($transacciones as $transaccion)
             <tr>
-                <td>25/02/2005</td>
-                <td>Quelin...</td>
-                <td>Más que tu casa</td>
-                <td>La mia obvio</td>
+                <td>{{$transaccion->created_at}}</td>
+                <td>{{$transaccion->motivo}}</td>
+                <td>{{$transaccion->monto}}</td>
+                <td>{{$transaccion->nombre}}</td>
                 <td>
                     <a href="#" class="btn btn-secondary" style="text-decoration:none;"><i class="bi bi-pencil-square"></i></a>                                
                 </td>
@@ -28,6 +29,7 @@
                     <a href="#" class="btn btn-secondary" style="text-decoration:none;"><i class="bi bi-trash3-fill"></i></a>
                 </td>
             </tr>
+            @endforeach
         </table>
         <form>
         
