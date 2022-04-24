@@ -17,7 +17,6 @@ class TransaccionesSeeder extends Seeder
             'monto' => 100,
             'id_tipo_transaccion' => 1,
             'motivo' => 'Pago de salario',
-            'id_motivo' => 1
         ]);
     }
 }
