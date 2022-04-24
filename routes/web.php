@@ -37,6 +37,11 @@ Route::get('/eliminarCuenta/{id}', 'cuentasController@eliminarCuenta')->name('el
 /* Rutas ingresosController */
 Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
 
+Route::get('/nuevoIngreso', 'ingresosController@nuevoIngreso')->name('nuevoIngreso');
+Route::post('/ingresarIngreso', 'ingresosController@ingresarIngreso')->name('ingresarIngreso');
+
+
+
 /* Rutas egresosController */
 Route::get('/egresos', 'egresosController@index')->name('egresos');
 

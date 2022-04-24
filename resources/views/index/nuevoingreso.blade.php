@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('contenido')
-<form action="" method="POST">
+<form action="{{route('ingresarIngreso')}}" method="POST">
 @csrf
     <section id="datos" class="section" >
         <h3 style="background-color: #2E8B57">Registro de ingreso</h3>
@@ -12,15 +12,23 @@
                 </tr>
                 <tr>
                     <td>Motivo:</td>
-                    <td>
-                        <select name="slcMotivo">
+                   <td>
+                        <select name="slcCuenta">
+                            @foreach($cuentas as $cuenta)
+                            <option value="{{$cuenta->id}}">{{$cuenta->nombre}}</option>
+                            @endforeach
+                        </select>
                     </td>
                 </tr>
                 
                 <tr>
                     <td>Cuenta:</td>
                     <td>
-                        <select name="slcTipoCuenta">
+                    <select name="slcMotivo">
+                            @foreach($motivos as $motivo)
+                            <option value="{{$motivo->id}}">{{$motivo->motivo}}</option>
+                            @endforeach
+                        </select>
                     </td>
                 </tr>                             
                 <tr >                   

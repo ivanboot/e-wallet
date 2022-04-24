@@ -5,7 +5,7 @@
     
         <h3><a href="{{route('index')}}"><img src="/img/regresar.png" name="regresarcuenta" id="regresarcuenta" class="regresar"></a>Ingresos</h3>
          <div class="container">
-             <a href="#" class="btn btn-success btn-lg" style="margin-bottom:1%;" >Nuevo registro</a>
+             <a href="{{route('nuevoIngreso')}}" class="btn btn-success btn-lg" style="margin-bottom:1%;" >Nuevo registro</a>
          </div>
         <form>
         <table id="tabla_ingresos">
