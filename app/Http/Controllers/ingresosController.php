@@ -46,4 +46,10 @@ class ingresosController extends Controller
 
         return redirect()->route('ingresos');
     }
+
+    public function eliminarIngreso(int $id){
+        
+     
+        return $id;
+    }
 }

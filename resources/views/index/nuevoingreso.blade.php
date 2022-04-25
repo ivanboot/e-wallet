@@ -11,7 +11,7 @@
                     <td><input type="text" name="txtmonto" id="txtmonto"></td>
                 </tr>
                 <tr>
-                    <td>Motivo:</td>
+                    <td>Cuenta:</td>
                    <td>
                         <select name="slcCuenta">
                             @foreach($cuentas as $cuenta)
@@ -22,7 +22,7 @@
                 </tr>
                 
                 <tr>
-                    <td>Cuenta:</td>
+                    <td>Motivo:</td>
                     <td>
                     <textarea name="txtMotivo"></textarea>
                     </td>

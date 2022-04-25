@@ -40,6 +40,8 @@ Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
 Route::get('/nuevoIngreso', 'ingresosController@nuevoIngreso')->name('nuevoIngreso');
 Route::post('/ingresarIngreso', 'ingresosController@ingresarIngreso')->name('ingresarIngreso');
 
+//Route::get('/eliminarIngreso', 'ingresosController@eliminarIngreso')->name('eliminarIngreso');
+
 
 
 /* Rutas egresosController */
