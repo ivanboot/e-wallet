@@ -35,12 +35,11 @@ Route::post('/cuentaNueva', 'cuentasController@cuentaNueva')->name('cuentaNueva'
 Route::get('/eliminarCuenta/{id}', 'cuentasController@eliminarCuenta')->name('eliminarCuenta');
 
 /* Rutas ingresosController */
-Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
 
+Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
 Route::get('/nuevoIngreso', 'ingresosController@nuevoIngreso')->name('nuevoIngreso');
 Route::post('/ingresarIngreso', 'ingresosController@ingresarIngreso')->name('ingresarIngreso');
-
-//Route::get('/eliminarIngreso', 'ingresosController@eliminarIngreso')->name('eliminarIngreso');
+Route::get('/eliminarIngreso', 'ingresosController@eliminarIngreso')->name('eliminarIngreso');
 
 
 

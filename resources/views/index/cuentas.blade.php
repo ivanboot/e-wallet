@@ -103,7 +103,8 @@
                                 <a href="{{route('editarCuenta', $cuenta->id)}}" style="text-decoration:none;"><i class="bi bi-pencil-square"></i></a>                                
                             </td>
                             <td>
-                                <a href="{{route('eliminarCuenta', $cuenta->id)}}" style="text-decoration:none;"><i class="bi bi-trash3-fill"></i></a>
+                                <a id="btneliminar" href="{{route('eliminarCuenta', $cuenta->id)}}" style="text-decoration:none;" 
+                                onclick="eliminar();"><i class="bi bi-trash3-fill"></i></a>
                             </td>
                             
                         </tr> 
@@ -138,4 +139,19 @@
         </div>
     </div>
 -->
+<script>
+    function eliminar() {
+    
+        var mensaje;
+        var opcion = null;
+        opcion = confirm("¿Esta seguro de eliminar esta cuenta?");
+        if (opcion == true) {
+            
+            document.getElementById("btneliminar").click;
+        }else{
+            event.preventDefault();
+        }
+        
+    }
+</script>
 @endsection

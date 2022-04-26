@@ -28,8 +28,9 @@
                             class="bi bi-pencil-square"></i></a>
                 </td>
                 <td>
-                    <button class="btn btn-secondary" onclick="eliminar('{{$transaccion->id}}');"
-                        style="text-decoration:none;"><i class="bi bi-trash3-fill"></i></button>
+
+                    <a href="{{route('eliminarIngreso')}}" class="btn btn-secondary" style="text-decoration:none;"><i
+                                class="bi bi-trash3-fill" id="btneliminar" onclick="eliminar();"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -39,14 +40,18 @@
             <h6>Sistema E-Wallet</h6>
 </section>
 <script>
-function eliminar(id) {
-    var mensaje;
-    var opcion = confirm("Esta seguro de eliminar este registro");
-    if (opcion == true) {
-        window.location = "{{route('eliminarIngreso')}}";
-
+    function eliminar() {
+    
+        var mensaje;
+        var opcion = null;
+        opcion = confirm("¿Está seguro de eliminar este registro?");
+        if (opcion == true) {
+            
+            document.getElementById("btneliminar").click;
+        }else{
+            event.preventDefault();
+        }
+        
     }
-
-}
 </script>
 @endsection
