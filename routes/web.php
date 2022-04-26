@@ -38,8 +38,10 @@ Route::get('/eliminarCuenta/{id}', 'cuentasController@eliminarCuenta')->name('el
 
 Route::get('/ingresos', 'ingresosController@index')->name('ingresos');
 Route::get('/nuevoIngreso', 'ingresosController@nuevoIngreso')->name('nuevoIngreso');
+Route::post('/modificarIngreso', 'ingresosController@modificarIngreso')->name('modificarIngreso');
 Route::post('/ingresarIngreso', 'ingresosController@ingresarIngreso')->name('ingresarIngreso');
-Route::get('/eliminarIngreso', 'ingresosController@eliminarIngreso')->name('eliminarIngreso');
+Route::get('/eliminarIngreso/{id}', 'ingresosController@eliminarIngreso')->name('eliminarIngreso');
+Route::get('/editarIngreso/{id}', 'ingresosController@editarIngreso')->name('editarIngreso');
 
 
 

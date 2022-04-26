@@ -75,7 +75,7 @@ class CuentasController extends Controller
     }
 
     public function actualizarCuenta(Request $request){
-        $id=$request->get('txtid');
+        $id=$request->get('txtId');
         $numero = $request->get('txtNumero');
         $nombre = $request->get('txtnombrecuenta');
         $tipocuenta = $request->get('slcTipoCuenta');
@@ -85,7 +85,7 @@ class CuentasController extends Controller
             'id_tipo_cuenta' => $tipocuenta,
         ]);;
 
-        return redirect()->route('cuentas');
+        return redirect()->route('index');
     }
 
     //Ocurre cuando el usuario se logea por primera vez y debe registrar su primera cuenta

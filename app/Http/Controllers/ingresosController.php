@@ -29,6 +29,13 @@ class ingresosController extends Controller
         return view('index/nuevoingreso',['cuentas'=>$cuentasuser]);
     }
 
+    public function editarIngreso(int $id){
+        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $ingreso=transacciones::where('id', $id)->get();
+       
+        return view('index/editaringreso',['cuentas'=>$cuentasuser],['ingreso'=>$ingreso]);
+    }
+
     public function ingresarIngreso(Request $request){
         
         $monto=$request->get('txtmonto');
@@ -47,9 +54,28 @@ class ingresosController extends Controller
         return redirect()->route('ingresos');
     }
 
-    public function eliminarIngreso(){
-        
-     
-        return "saludos";
+    public function modificarIngreso(Request $request){
+        $id=$request->get('txtId');
+        $monto=$request->get('txtmonto');
+        $cuenta=$request->get('slcCuenta');
+        $motivo=$request->get('txtMotivo');
+        transacciones::where('id',$id)->update([
+            'monto' => $monto,
+            'id_cuenta' => $cuenta,
+            'id_tipo_transaccion' => 1,
+            'motivo' => $motivo
+        ]);
+
+        $this->calcularSaldo();
+        $this->comprobarBalance();
+
+        return redirect()->route('ingresos');
+    }
+    
+    public function eliminarIngreso(int $id){
+        DB::table('transacciones')->where('id', '=', $id)->delete();
+        $this->calcularSaldo();
+        $this->comprobarBalance();
+        return redirect()->route('ingresos');
     }
 }

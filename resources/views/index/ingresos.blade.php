@@ -24,12 +24,12 @@
                 <td>{{$transaccion->monto}}</td>
                 <td>{{$transaccion->nombre}}</td>
                 <td>
-                    <a href="#" class="btn btn-secondary" style="text-decoration:none;"><i
+                    <a href="{{route('editarIngreso' , $transaccion->id )}}" class="btn btn-secondary" style="text-decoration:none;"><i
                             class="bi bi-pencil-square"></i></a>
                 </td>
                 <td>
 
-                    <a href="{{route('eliminarIngreso')}}" class="btn btn-secondary" style="text-decoration:none;"><i
+                    <a href="{{route('eliminarIngreso' , $transaccion->id )}}" class="btn btn-secondary" style="text-decoration:none;"><i
                                 class="bi bi-trash3-fill" id="btneliminar" onclick="eliminar();"></i></a>
                 </td>
             </tr>
