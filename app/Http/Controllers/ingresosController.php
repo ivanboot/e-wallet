@@ -10,7 +10,8 @@ use App\transacciones;
 class ingresosController extends Controller
 {
     public function index(){
-        
+        $this->calcularSaldo();
+        $this->comprobarBalance();
         $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
         $transacciones = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
@@ -27,14 +28,7 @@ class ingresosController extends Controller
         $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
        
         return view('index/nuevoingreso',['cuentas'=>$cuentasuser]);
-    }
-
-    public function editarIngreso(int $id){
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
-        $ingreso=transacciones::where('id', $id)->get();
-       
-        return view('index/editaringreso',['cuentas'=>$cuentasuser],['ingreso'=>$ingreso]);
-    }
+    }   
 
     public function ingresarIngreso(Request $request){
         
@@ -54,6 +48,13 @@ class ingresosController extends Controller
         return redirect()->route('ingresos');
     }
 
+    public function editarIngreso(int $id){
+        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $ingreso=transacciones::where('id', $id)->get();
+       
+        return view('index/editaringreso',['cuentas'=>$cuentasuser],['ingreso'=>$ingreso]);
+    }
+    
     public function modificarIngreso(Request $request){
         $id=$request->get('txtId');
         $monto=$request->get('txtmonto');

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Hash;
 class opcionesController extends Controller
 {
     public function index(){
-
+        
+        $this->calcularSaldo();
+        $this->comprobarBalance();
         /*Almacenaje de datos del usuario */
         $cuentas=cuentas::where('id_usuario', session('id'))->get();
         $usuarios=usuarios::where('id', session('id'))->get();

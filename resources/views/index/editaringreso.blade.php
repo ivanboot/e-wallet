@@ -30,7 +30,7 @@
                 </tr>                             
                 <tr >                   
                     <td colspan="2">
-                        <input type="submit" name="btnfinalizar" id="btnfinalizar" value="Actualizar">
+                        <input type="submit" class="btn btn-success" name="btnfinalizar" id="btnfinalizar" value="Actualizar">
                     </td>
                 </tr>
             </table>

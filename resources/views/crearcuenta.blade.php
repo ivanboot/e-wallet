@@ -48,7 +48,7 @@
                 <tr >
                    
                     <td colspan="2">
-                        <input type="submit" name="btnfinalizar" id="btnfinalizar" value="Enviar y continuar">
+                        <input type="submit" class="btn btn-primary" name="btnfinalizar" id="btnfinalizar" value="Enviar y continuar">
                     </td>
                 </tr>
             </table>

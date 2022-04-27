@@ -21,7 +21,7 @@
             <tr>
                 <td>{{$transaccion->created_at}}</td>
                 <td>{{$transaccion->motivo}}</td>
-                <td>{{$transaccion->monto}}</td>
+                <td>${{$transaccion->monto}}</td>
                 <td>{{$transaccion->nombre}}</td>
                 <td>
                     <a href="{{route('editarIngreso' , $transaccion->id )}}" class="btn btn-secondary" style="text-decoration:none;"><i

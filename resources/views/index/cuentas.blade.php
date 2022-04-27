@@ -61,7 +61,7 @@
                         <tr>
                             <td>{{$cuentas[$i]->numero}}</td>
                             <td>{{$cuentas[$i]->nombre}}</td>
-                            <td>{{$saldocuenta[$i]}}</td>
+                            <td>${{$saldocuenta[$i]}}</td>
                             <td>{{$cuentas[$i]->nombres}}</td>
                         </tr>
                     
@@ -70,7 +70,7 @@
                 </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" value="Registrar" name="btnregistro" id="btnregistro">Continuar</button>
+                    
                 </div>
             </div>
         </div>

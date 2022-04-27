@@ -11,7 +11,9 @@ use App\transacciones;
 
 class CuentasController extends Controller
 {
-    public function index(){           
+    public function index(){     
+        $this->calcularSaldo();
+        $this->comprobarBalance();      
         $saldototal=session('saldototal');
        
         $cuentas=cuentas::where('id_usuario', session('id'))->get();

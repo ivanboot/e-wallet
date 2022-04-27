@@ -44,9 +44,13 @@ Route::get('/eliminarIngreso/{id}', 'ingresosController@eliminarIngreso')->name(
 Route::get('/editarIngreso/{id}', 'ingresosController@editarIngreso')->name('editarIngreso');
 
 
-
 /* Rutas egresosController */
 Route::get('/egresos', 'egresosController@index')->name('egresos');
+Route::get('/nuevoEgreso', 'egresosController@nuevoEgreso')->name('nuevoEgreso');
+Route::post('/ingresarEgreso', 'egresosController@ingresarEgreso')->name('ingresarEgreso');
+Route::get('/editarEgreso/{id}', 'egresosController@editarEgreso')->name('editarEgreso');
+Route::post('/modificarEgreso', 'egresosController@modificarEgreso')->name('modificarEgreso');
+Route::get('/eliminarEgreso/{id}', 'egresosController@eliminarEgreso')->name('eliminarEgreso');
 
 /* Rutas opcionesController */
 Route::get('/opciones', 'opcionesController@index')->name('opciones');
