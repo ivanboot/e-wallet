@@ -16,9 +16,9 @@ class UsuariosSeeder extends Seeder
         Usuarios::create([
             'nombre' => 'Usuario',
             'apellido' => 'Usuario',
-            'correo' => 'usuario@gmail.com',
-            'balance' => 0,            
-            'clave' => Hash::make('password'),
+            'email' => 'usuario@gmail.com',
+            'balance' => 0,
+            'password' => Hash::make('password'),
         ]);
     }
 }

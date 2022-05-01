@@ -15,57 +15,63 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function calcularSaldo(){
+    protected function calcularSaldo()
+    {
 
         //Buscando los ingresos
         $ingreso = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
-        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
-        ->select('transacciones.*','usuarios.id')
-        ->where('usuarios.id','=', session('id'))
-        ->where('transacciones.id_tipo_transaccion', '=', 1)        
+        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')
+        ->select('transacciones.*', 'usuarios.id')
+        ->where('usuarios.id', '=', auth()->user()->id)
+        ->where('transacciones.id_tipo_transaccion', '=', 1)
         ->get();
+
         //Buscando los egresos
         $egresos = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
-        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
+        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')
         ->select('transacciones.*')
         ->where('transacciones.id_tipo_transaccion', '=', 2)
-        ->where('usuarios.id', '=', session('id'))
+        ->where('usuarios.id', '=', auth()->user()->id)
         ->get();
+
         $i=0;
         $valor=0;
         
         //sumarizando el total de saldos en sus cuentas
         
-            for ($i=0;$i<$ingreso->count();$i++){
-                $valor = $valor + ($ingreso[$i]->monto);
-            }
+        for ($i=0; $i<$ingreso->count(); $i++) {
+            $valor = $valor + ($ingreso[$i]->monto);
+        }
         
         
         
-            for ($i=0;$i<$egresos->count();$i++){
-                $valor = $valor - ($egresos[$i]->monto);
-            } 
+        for ($i=0; $i<$egresos->count(); $i++) {
+            $valor = $valor - ($egresos[$i]->monto);
+        }
         
-                       
+                      
+        auth()->user()->update([
+            'balance' => $valor,
+        ]);
         session(['saldototal'=>$valor]);
     }
 
-    protected function comprobarBalance(){
-        $usuarios=usuarios::where('id',session('id'))->get();
-
-        if(session('saldototal') > $usuarios[0]->balance ){
+    protected function comprobarBalance()
+    {
+        if (session('saldototal') > auth()->user()->balance) {
             session(['balance'=>1]);
-        }else{
+        } else {
             session(['balance'=>0]);
         }
     }
 
-    protected function retornarSaldoCuenta($id){
+    protected function retornarSaldoCuenta($id)
+    {
         $ingreso = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
-        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
+        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')
         ->select('transacciones.*')
         ->where('transacciones.id_tipo_transaccion', '=', 1)
         ->where('cuentas.id', '=', $id)
@@ -73,19 +79,19 @@ class Controller extends BaseController
         //Buscando los egresos
         $egresos = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
-        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
+        ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')
         ->select('transacciones.*')
         ->where('transacciones.id_tipo_transaccion', '=', 2)
         ->where('cuentas.id', '=', $id)
         ->get();
 
         $valor=0;
-        for ($i=0;$i<$ingreso->count();$i++){
+        for ($i=0; $i<$ingreso->count(); $i++) {
             $valor = $valor + ($ingreso[$i]->monto);
         }
         
     
-        for ($i=0;$i<$egresos->count();$i++){
+        for ($i=0; $i<$egresos->count(); $i++) {
             $valor = $valor - ($egresos[$i]->monto);
         }
 

@@ -12,20 +12,20 @@ class ingresosController extends Controller
     public function index(){
         $this->calcularSaldo();
         $this->comprobarBalance();
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $cuentasuser=cuentas::where('id_usuario', auth()->user()->id)->get();
         $transacciones = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
         ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
         ->select('transacciones.*','cuentas.nombre' )
         ->where('transacciones.id_tipo_transaccion', '=', 1)
-        ->where('usuarios.id', '=', session('id'))
+        ->where('usuarios.id', '=', auth()->user()->id)
         ->get();
         
         return view('index/ingresos',['transacciones'=>$transacciones]);
     }
 
     public function nuevoIngreso(){
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $cuentasuser=cuentas::where('id_usuario', auth()->user()->id)->get();
        
         return view('index/nuevoingreso',['cuentas'=>$cuentasuser]);
     }   
@@ -49,7 +49,7 @@ class ingresosController extends Controller
     }
 
     public function editarIngreso(int $id){
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $cuentasuser=cuentas::where('id_usuario', auth()->user()->id)->get();
         $ingreso=transacciones::where('id', $id)->get();
        
         return view('index/editaringreso',['cuentas'=>$cuentasuser],['ingreso'=>$ingreso]);

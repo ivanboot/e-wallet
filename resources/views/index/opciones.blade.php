@@ -61,7 +61,7 @@
                                 <p class="fw-bold">Correo</p>
                             </div>
                             <div class="col-6">
-                                <p>{{$usuarios[0]->correo}}</p>
+                                <p>{{$usuarios[0]->email}}</p>
                             </div>
                         </div>
 
