@@ -51,10 +51,7 @@ class Controller extends BaseController
             $valor = $valor - ($egresos[$i]->monto);
         }
         
-                      
-        auth()->user()->update([
-            'balance' => $valor,
-        ]);
+                              
         session(['saldototal'=>$valor]);
     }
 

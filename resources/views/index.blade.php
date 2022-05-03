@@ -14,7 +14,7 @@
 <section id="folo" class="section">
     <nav class="navbar navbar-expand-lg navbar-black bg-black">
         <div class="container-fluid">
-            @if(auth()->user()->balance > 0)
+            @if(Session::get('saldototal') > 0)
                 <a class="navbar-brand" style="color:green;">
             @else
                 <a class="navbar-brand" style="color:red;">
