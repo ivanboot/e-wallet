@@ -8,14 +8,10 @@ use App\cuentas;
 
 class HomeController extends Controller
 {
-    public function index(Request $request){  
-
-        $id=session('id');
-        $query=Usuarios::where('id',$id)->get();
+    public function index()
+    {
+        $nombre = auth()->user()->nombre;
         
-
-        $nombre=$query[0]->nombre;
-        
-        return view('index/home',['query'=>$query]);
+        return view('index/home', ['query' => $nombre]);
     }
 }

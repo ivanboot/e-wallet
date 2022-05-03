@@ -10,24 +10,26 @@ use Illuminate\Support\Facades\Hash;
 
 class opcionesController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         
         $this->calcularSaldo();
         $this->comprobarBalance();
         /*Almacenaje de datos del usuario */
-        $cuentas=cuentas::where('id_usuario', session('id'))->get();
-        $usuarios=usuarios::where('id', session('id'))->get();
+        $cuentas=cuentas::where('id_usuario', auth()->user()->id)->get();
+        $usuarios=usuarios::where('id', auth()->user()->id)->get();
 
 
         return view('index/opciones', ['cuentas'=>$cuentas], ['usuarios'=>$usuarios]);
     }
 
     public function nuevobalance(Request $request)
-    {        
+    {
         $balance = $request->get('txtnuevobalance');
-        usuarios::where('id',session('id'))->update([
+        usuarios::where('id', auth()->user()->id)->update([
             'balance' => $balance,
-        ]);;
+        ]);
+        ;
 
         $this->comprobarBalance();
         
@@ -42,24 +44,24 @@ class opcionesController extends Controller
         $confirmarcontra = $request->get('txtconfirmarcontra');
 
         //Buscando coincidencias de la contraseña actual
-        $consulta = usuarios::where('id', session('id'))->get();
-        $consultacontra = $consulta[0]->clave;
+        $consulta = usuarios::where('id', auth()->user()->id)->get();
+        $consultacontra = $consulta[0]->password;
 
         //Verifica si la contraseña que se ingresa es la misma que en la base de datos
-       if (password_verify($actualcontra, $consultacontra)) {
-           //Verifica si las contraseñas son iguales
-           if ($confirmarcontra == $contranueva) {
-               usuarios::where('id', session('id'))->update([
-                   'clave' => Hash::make($confirmarcontra), //Encriptando contraseña nueva
-               ]);
-           }else {
-               //Poner mensajes de validación
-               return redirect()->route('opciones');
-           }
-       }else {
-           //Poner mensajes de validación
-           return redirect()->route('opciones');
-       }
-       return redirect()->route('opciones');
+        if (password_verify($actualcontra, $consultacontra)) {
+            //Verifica si las contraseñas son iguales
+            if ($confirmarcontra == $contranueva) {
+                usuarios::where('id', auth()->user()->id)->update([
+                   'password' => Hash::make($confirmarcontra), //Encriptando contraseña nueva
+                ]);
+            } else {
+                //Poner mensajes de validación
+                return redirect()->route('opciones');
+            }
+        } else {
+            //Poner mensajes de validación
+            return redirect()->route('opciones');
+        }
+        return redirect()->route('opciones');
     }
 }

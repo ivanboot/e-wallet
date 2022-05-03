@@ -2,73 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Usuarios;
 use App\cuentas;
+use App\Usuarios;
 use App\tipo_cuentas;
+use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
 {
-    public function ingresar(Request $request)
+    public function ingresar(LoginRequest $request)
     {
-        
-        /*
-        $usuarios= Usuarios::where('nombre','ivan')->get();
-        return $usuarios;*/
-        //return dd($request->all());  conocer qué datos devuelve la peticion
+        $credentials = $request->getCredentials();
 
-        $data=request()->validate([
-            'txtuser'=>'required',
-            'txtpassword'=>'required'
-        ],
-        [
-            'txtuser.required'=>'Ingrese un usuario',
-            'txtpassword.required'=>'Ingrese una contraseña',
-        ]);
-        
-        $user=$request->get('txtuser');
-        $query=usuarios::where('nombre',$user)->get();
-        
-        
-
-        if($query->count() != 0)
-        {
-           
-
-            $hashpass=$query[0]->clave;
-            $clave=$request->get('txtpassword');
-
-            if(password_verify($clave,$hashpass))
-            {
-
-                $id=$query[0]->id;
-                session(['id'=>$id]);
-                $cuentas=cuentas::where('id_usuario',$id)->get();
-                
-                //Comprobando si es nuevo usuario (no tiene cuentas) o si es antiguo usuario (con cuentas registradas)
-                if($cuentas->count() != 0){
-
-                    $this->calcularSaldo();
-                    $this->comprobarBalance();                    
-                    return redirect()->route('index');
-                }else{
-                   
-                    return redirect()->route('nuevacuenta');
-                }
-                
-            }else{
-                return back()->with(['info'=>'usuario o contraseña incorrecta']);
-            }
-        }else{
+        if (!Auth::attempt($credentials)) {
             return back()->with(['info'=>'usuario o contraseña incorrecta']);
         }
-        
+
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+        Auth::login($user);
+
+        $cuentas=cuentas::where('id_usuario', $user->id)->get();
+                
+        //Comprobando si es nuevo usuario (no tiene cuentas) o si es antiguo usuario (con cuentas registradas)
+        if ($cuentas && $cuentas->count() != 0) {
+            $this->calcularSaldo();
+            $this->comprobarBalance();
+            return redirect()->route('index');
+        } else {
+            return redirect()->route('nuevacuenta');
+        }
     }
 
     public function cerrarsesion(Request $request)
     {
+        Auth::logout();
         session()->flush();
         return redirect()->route('/');
     }
@@ -81,12 +51,14 @@ class loginController extends Controller
         //Encriptando contraseña ingresada por el usuario
         $contra = Hash::make($request->get('txtcontra'));
 
-        Usuarios::create([
+        $user = Usuarios::create([
             'nombre' => $nombre,
             'apellido' => $apellido,
-            'correo' => $correo,
-            'clave' => $contra
+            'email' => $correo,
+            'password' => $contra
         ]);
+
+        Auth::login($user);
 
         return redirect()->route('/');
     }
@@ -97,6 +69,6 @@ class loginController extends Controller
         $query = tipo_cuentas::all();
         $nombre=$query[0];
         
-        return view('crearcuenta',['query'=>$query]);
+        return view('crearcuenta', ['query'=>$query]);
     }
 }

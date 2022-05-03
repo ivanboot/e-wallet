@@ -11,20 +11,20 @@ class egresosController extends Controller
     public function index(){
         $this->calcularSaldo();
         $this->comprobarBalance();
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $cuentasuser=cuentas::where('id_usuario', auth()->user()->id)->get();
         $transacciones = DB::table('transacciones')
         ->join('cuentas', 'transacciones.id_cuenta', '=', 'cuentas.id')
         ->join('usuarios', 'cuentas.id_usuario', '=', 'usuarios.id')        
         ->select('transacciones.*','cuentas.nombre' )
         ->where('transacciones.id_tipo_transaccion', '=', 2)
-        ->where('usuarios.id', '=', session('id'))
+        ->where('usuarios.id', '=', auth()->user()->id)
         ->get();
 
         return view('index/egresos',['transacciones'=>$transacciones]);
     }
 
     public function nuevoEgreso(){
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $cuentasuser=cuentas::where('id_usuario', auth()->user()->id)->get();
        
         return view('index/nuevoegreso',['cuentas'=>$cuentasuser]);
     }
@@ -48,7 +48,7 @@ class egresosController extends Controller
     }
 
     public function editarEgreso(int $id){
-        $cuentasuser=cuentas::where('id_usuario', session('id'))->get();
+        $cuentasuser=cuentas::where('id_usuario', auth()->user()->id)->get();
         $egreso=transacciones::where('id', $id)->get();
        
         return view('index/editaregreso',['cuentas'=>$cuentasuser],['egreso'=>$egreso]);

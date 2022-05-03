@@ -16,9 +16,9 @@
             <h3>Login</h3>
             <table>
             @include('mensajes')
-                <tr><td>Nombre de Usuario:</td><td>Contraseña:</td></tr>
-                <tr><td><input class="form-control" type="text" id="txtuser" name="txtuser" value="{{old('txtuser')}}"></td>
-                <td><input class="form-control" type="password" id="txtpassword" name="txtpassword" value="{{old('txtpassword')}}"></td></tr>
+                <tr><td>Correo:</td><td>Contraseña:</td></tr>
+                <tr><td><input class="form-control" type="text" id="email" name="email" value="{{old('email')}}"></td>
+                <td><input class="form-control" type="password" id="password" name="password" value="{{old('password')}}"></td></tr>
                 
                 <tr id="link">
                     <td id="olvidar">

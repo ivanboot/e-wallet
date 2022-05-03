@@ -16,11 +16,11 @@ class CuentasController extends Controller
         $this->comprobarBalance();      
         $saldototal=session('saldototal');
        
-        $cuentas=cuentas::where('id_usuario', session('id'))->get();
+        $cuentas=cuentas::where('id_usuario', auth()->user()->id)->get();
         $cuentas = DB::table('cuentas')
             ->join('tipo_cuentas', 'cuentas.id_tipo_cuenta', '=', 'tipo_cuentas.id')
             ->select('cuentas.*', 'tipo_cuentas.nombres')
-            ->where('cuentas.id_usuario', '=', session('id'))
+            ->where('cuentas.id_usuario', '=', auth()->user()->id)
             ->get();
         
         for($i=0;$i<$cuentas->count();$i++){
@@ -46,7 +46,7 @@ class CuentasController extends Controller
             'numero' => $numero,
             'nombre' => $nombre,
             'id_tipo_cuenta' => $tipo,
-            'id_usuario' => session('id')
+            'id_usuario' => auth()->user()->id
         ]);
         
        
@@ -100,7 +100,7 @@ class CuentasController extends Controller
             'numero' => $numero,
             'nombre' => $nombre,            
             'id_tipo_cuenta' => $tipo,
-            'id_usuario' => session('id')
+            'id_usuario' => auth()->user()->id
         ]);
         
         transacciones::create([

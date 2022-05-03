@@ -1,5 +1,3 @@
-@if(Session::has('id'))
-<!DOCTYPE>
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,17 +8,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js" charset="utf-8"></script>
 </head>
 <body>
 <section id="folo" class="section">
     <nav class="navbar navbar-expand-lg navbar-black bg-black">
         <div class="container-fluid">
-            @if(session::get('balance')==1)
+            @if(Session::get('saldototal') > 0)
                 <a class="navbar-brand" style="color:green;">
             @else
                 <a class="navbar-brand" style="color:red;">
             @endif
-            E-Wallet Balance: ${{session::get('saldototal')}}
+            E-Wallet Balance: ${{Session::get('saldototal')}}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,8 +55,3 @@
     @yield('contenido')
 </body>
 </html>
-@else
-    <script type="text/javascript">
-        window.location = "{{ url('/')}}";
-    </script>
-@endif
